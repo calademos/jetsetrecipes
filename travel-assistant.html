@@ -56,6 +56,11 @@ ${userMessage}`;
   }
 });
 
+// Add GET / route for health check
+app.get('/', (req, res) => {
+  res.send('✅ Jetset Recipes AI Proxy is running. Use POST /ask to interact.');
+});
+
 app.listen(port, () => {
   console.log(`Jetset AI Assistant is running at http://localhost:${port}`);
 });
