@@ -88,6 +88,17 @@
   document.addEventListener("DOMContentLoaded", () => {
     const responseBox = document.getElementById("response");
 
+    // TEMPORARY: Test Markdown rendering
+    const testMarkdown = `
+**Test Output**
+- [Click to visit Google](https://www.google.com)
+- Earn with [Rakuten](https://rakuten.com/r/YOURCODE)
+
+Enjoy your trip! 🚀
+`;
+    responseBox.innerHTML = marked.parse(testMarkdown);
+
+    /*
     window.getResponse = async function () {
       const userMessage = document.getElementById("userInput").value;
       responseBox.innerHTML = "<em>Cooking up your strategy...</em>";
@@ -103,18 +114,14 @@
 
         const data = await res.json();
         const output = (data.reply || "No response.").trim();
-
-// Fixes broken escape sequences if any were inserted:
-const clean = output.replace(/\\n/g, '\n').replace(/\\r/g, '').replace(/\\t/g, '\t');
-
-// Convert to HTML with Markdown and inject:
-responseBox.innerHTML = marked.parse(clean);
-
+        console.log("🧠 AI RAW REPLY →", output);
+        responseBox.innerHTML = window.marked.parse(output);
       } catch (err) {
         responseBox.innerHTML = "<span style='color: red;'>❌ Error: Could not reach the assistant.</span>";
         console.error(err);
       }
     };
+    */
   });
 </script>
 </body>
