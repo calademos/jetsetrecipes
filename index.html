@@ -3,90 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jetset Recipes</title>
+  <title>Jetset Recipe – Paris</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
       margin: 0;
-      font-family: sans-serif;
-      background-color: #ffffff;
-      color: #111;
+      padding: 0;
     }
     header {
+      background: #f5f5f5;
+      padding: 40px;
       text-align: center;
-      padding: 60px 20px;
     }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
     }
-    p.subtitle {
-      font-size: 1.2em;
-      color: #555;
-    }
-    .recipes {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 40px 20px;
-      gap: 30px;
-    }
-    .recipe-card {
-      border: 1px solid #eee;
+    .hero {
+      text-align: center;
       padding: 20px;
-      border-radius: 12px;
-      width: 300px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: all 0.2s;
+      background-color: #eaeaea;
     }
-    .recipe-card:hover {
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    .section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
-    .recipe-card h2 {
-      font-size: 1.3em;
-      margin-top: 0;
+    .card-banner {
+      background: #dbeafe;
+      border: 2px dashed #3b82f6;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      border-radius: 10px;
     }
-    .recipe-card ul {
+    .card-banner a {
+      background: #3b82f6;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    .ingredients, .steps, .summary {
+      margin-bottom: 40px;
+    }
+    h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+      font-size: 1.4rem;
+    }
+    ul {
       padding-left: 20px;
+    }
+    .badge {
+      display: inline-block;
+      background: #dcfce7;
+      color: #166534;
+      padding: 6px 12px;
+      margin: 5px;
+      border-radius: 999px;
+      font-size: 0.9rem;
     }
     footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 40px;
       font-size: 0.9em;
-      color: #888;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Jetset Recipes</h1>
-    <p class="subtitle">Skip the planning. Follow the recipe. Travel better.</p>
+    <h1>Jetset Recipe: Paris</h1>
+    <p>Follow this delicious recipe to unlock 5 days in Paris for $600 + 50k points.</p>
   </header>
 
-  <section class="recipes">
-    <div class="recipe-card">
-      <h2>Venice - 5 Days, $400 + 60k Points</h2>
-      <p><strong>Ingredients:</strong></p>
-      <ul>
-        <li>60k Chase UR</li>
-        <li>Rakuten</li>
-        <li>CardPointers</li>
-        <li>Google Flights</li>
-        <li>Hyatt</li>
-      </ul>
-      <p><strong>Steps:</strong> Book flight via Chase portal, Hyatt stay with points, stack cashback with Rakuten.</p>
-    </div>
+  <div class="section card-banner">
+    <p>Start with the right card to unlock this journey:</p>
+    <a href="#">Apply for Chase Sapphire Preferred</a>
+  </div>
 
-    <div class="recipe-card">
-      <h2>Buenos Aires - 3 Nights, $300 Stack</h2>
-      <p><strong>Ingredients:</strong></p>
-      <ul>
-        <li>Venture X</li>
-        <li>Fluz + Dosh</li>
-        <li>Booking.com + Rakuten</li>
-      </ul>
-      <p><strong>Steps:</strong> Cashback stack with Fluz & Rakuten, local LATAM flight deal, use travel credit.</p>
-    </div>
-  </section>
+  <div class="section ingredients">
+    <h2>🧵 Ingredients</h2>
+    <ul>
+      <li>50,000 Chase Ultimate Rewards Points</li>
+      <li>Google Flights</li>
+      <li>Hyatt.com or World of Hyatt App</li>
+      <li>Rakuten (for cashback on transport bookings)</li>
+    </ul>
+  </div>
+
+  <div class="section steps">
+    <h2>🍳 Instructions</h2>
+    <ol>
+      <li>Apply and get approved for the Chase Sapphire Preferred.</li>
+      <li>Spend $4,000 in the first 3 months to earn 60k points.</li>
+      <li>Use Chase Travel Portal to book a roundtrip flight to Paris (around 45k points).</li>
+      <li>Book 3 nights at a central Paris Hyatt property with points (15k/night).</li>
+      <li>Use Rakuten for local transport or attraction deals.</li>
+    </ol>
+  </div>
+
+  <div class="section summary">
+    <h2>🏆 Bonus Points</h2>
+    <div class="badge">✈️ Flight Unlocked</div>
+    <div class="badge">🏨 Hotel Secured</div>
+    <div class="badge">💰 Cashback Applied</div>
+    <div class="badge">⭐ Jetset Level: 1</div>
+  </div>
 
   <footer>
     &copy; 2025 Jetset Recipes. All rights reserved.
