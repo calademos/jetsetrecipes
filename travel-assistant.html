@@ -7,6 +7,9 @@
 
   <!-- ✅ Enable Markdown Parsing -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  window.marked = window.marked || marked;
+</script>
 
   <style>
     body {
@@ -85,7 +88,7 @@
 
         const data = await res.json();
         const output = data.reply || "No response.";
-        responseBox.innerHTML = marked.parse(output);
+        responseBox.innerHTML = window.marked.parse(output);
       } catch (err) {
         responseBox.innerHTML = "<span style='color: red;'>❌ Error: Could not reach the assistant.</span>";
         console.error(err);
