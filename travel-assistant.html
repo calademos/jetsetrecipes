@@ -72,7 +72,7 @@
 
       const data = await res.json();
       const output = data.reply || "No response.";
-      responseBox.innerHTML = output;
+      responseBox.innerHTML = output; // Allow clickable HTML links
     }
   </script>
 </body>
