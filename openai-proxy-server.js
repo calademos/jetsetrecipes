@@ -1,66 +1,50 @@
-// openai-proxy-server.js
+// openai-proxy-server.js (mocked version)
 
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const fetch = require('node-fetch');
-require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// ✅ Allow frontend origin (GitHub Pages)
 app.use(cors({
   origin: 'https://calademos.github.io'
 }));
 
 app.use(bodyParser.json());
 
-// ✅ Proxy POST /ask
+// ✅ POST endpoint that sends a mocked markdown response
 app.post('/ask', async (req, res) => {
-  const userMessage = req.body.message;
+  const reply = `
+### ✈️ Jetset Recipe: Paris on Points
 
-  const prompt = `You are a travel planning assistant. Return your response in **GitHub-flavored Markdown**. Use valid [text](url) links for all referral links and travel tools.
+**🥄 Ingredients**
+- [Chase Sapphire Preferred – Apply Now](https://www.referyourchasecard.com/226m/EFWV1I3B5Q)
+- [Rakuten Cashback Sign-Up](https://www.rakuten.com/r/HUNGER276)
+- Google Flights
+- 45,000 Chase Ultimate Rewards Points
 
-User request:
-${userMessage}
+**👨‍🍳 Steps**
+1. Book your round-trip flight using Chase Travel Portal with 45k points.
+2. Reserve a 3-night stay at a Hyatt property in Paris.
+3. Stack Rakuten cashback when booking transport or excursions.
+4. Use your card’s travel protections and lounge access.
+
+**💡 Pro Tip:** Book shoulder season (April–May or Sept–Oct) for best value.
+
+**🍷 Estimated Savings:** $1,200+
+
+✅ Enjoy your Paris escape!
 `;
 
-  try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
-        messages: [{ role: 'user', content: prompt }],
-        temperature: 0.7,
-      }),
-    });
-
-    const data = await response.json();
-
-    if (data.error) {
-      console.error('OpenAI API Error:', data.error);
-      return res.status(500).json({ reply: `⚠️ Error: ${data.error.message}` });
-    }
-
-    const reply = data.choices?.[0]?.message?.content || '⚠️ No response received.';
-    res.json({ reply });
-
-  } catch (err) {
-    console.error('Proxy Server Error:', err);
-    res.status(500).json({ reply: '⚠️ Proxy error. Please try again later.' });
-  }
+  res.json({ reply });
 });
 
 // ✅ Health check
 app.get('/', (req, res) => {
-  res.send('✅ Jetset Proxy running');
+  res.send('✅ Jetset Proxy is live (mock mode)');
 });
 
 app.listen(port, () => {
-  console.log(`🚀 Jetset Proxy listening at http://localhost:${port}`);
+  console.log(`🚀 Jetset Proxy (mock mode) running at http://localhost:${port}`);
 });
