@@ -72,7 +72,7 @@
 
       const data = await res.json();
       const output = data.reply || "No response.";
-      responseBox.textContent = output;
+      responseBox.innerHTML = output;
     }
   </script>
 </body>
