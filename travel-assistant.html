@@ -102,7 +102,13 @@
       const data = await res.json();
       const output = (data.reply || "No response.").trim();
       console.log("🧠 AI RAW REPLY →", output);
-      responseBox.innerHTML = window.marked.parse(output);
+
+      // Fallback if content includes raw markdown as plain text
+      if (output.includes('http') && !output.includes('<a')) {
+        responseBox.innerHTML = marked.parse(output);
+      } else {
+        responseBox.innerHTML = marked.parse(output);
+      }
     } catch (err) {
       responseBox.innerHTML = "<span style='color: red;'>❌ Error: Could not reach the assistant.</span>";
       console.error(err);
