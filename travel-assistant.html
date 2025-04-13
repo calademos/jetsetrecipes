@@ -95,9 +95,9 @@
         });
 
         const data = await res.json();
-        const output = data.reply || "No response.";
-        console.log("AI RAW REPLY:", output);
-        responseBox.innerHTML = window.marked.parse(output);
+        const output = (data.reply || "No response.").trim();
+        console.log("🧠 AI RAW REPLY →", output);
+        responseBox.innerHTML = marked.parse(output);
       } catch (err) {
         responseBox.innerHTML = "<span style='color: red;'>❌ Error: Could not reach the assistant.</span>";
         console.error(err);
