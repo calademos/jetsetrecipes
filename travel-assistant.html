@@ -85,44 +85,29 @@
   </div>
 
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  async function getResponse() {
+    const userMessage = document.getElementById("userInput").value;
     const responseBox = document.getElementById("response");
+    responseBox.innerHTML = "<em>Cooking up your strategy...</em>";
 
-    // TEMPORARY: Test Markdown rendering
-    const testMarkdown = `
-**Test Output**
-- [Click to visit Google](https://www.google.com)
-- Earn with [Rakuten](https://rakuten.com/r/YOURCODE)
+    try {
+      const res = await fetch("https://openai-proxy-server-qbp5.onrender.com/ask", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: userMessage }),
+      });
 
-Enjoy your trip! 🚀
-`;
-    responseBox.innerHTML = marked.parse(testMarkdown);
-
-    /*
-    window.getResponse = async function () {
-      const userMessage = document.getElementById("userInput").value;
-      responseBox.innerHTML = "<em>Cooking up your strategy...</em>";
-
-      try {
-        const res = await fetch("https://openai-proxy-server-qbp5.onrender.com/ask", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ message: userMessage }),
-        });
-
-        const data = await res.json();
-        const output = (data.reply || "No response.").trim();
-        console.log("🧠 AI RAW REPLY →", output);
-        responseBox.innerHTML = window.marked.parse(output);
-      } catch (err) {
-        responseBox.innerHTML = "<span style='color: red;'>❌ Error: Could not reach the assistant.</span>";
-        console.error(err);
-      }
-    };
-    */
-  });
-</script>
+      const data = await res.json();
+      const output = (data.reply || "No response.").trim();
+      console.log("🧠 AI RAW REPLY →", output);
+      responseBox.innerHTML = window.marked.parse(output);
+    } catch (err) {
+      responseBox.innerHTML = "<span style='color: red;'>❌ Error: Could not reach the assistant.</span>";
+      console.error(err);
+    }
+  }
+  </script>
 </body>
 </html>
