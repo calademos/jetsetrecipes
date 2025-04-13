@@ -18,12 +18,12 @@ app.post('/ask', async (req, res) => {
   const userMessage = req.body.message;
 
   // Mock response (hardcoded markdown with clickable links)
-  const reply = `
+const reply = `
 ### ✈️ Jetset Recipe: Paris on Points
 
 #### 🥄 Ingredients
-- [Chase Sapphire Preferred – Apply Now](https://www.referyourchasecard.com/226m/EFWV1I3B5Q)
-- [Rakuten Cashback Sign-Up](https://www.rakuten.com/r/HUNGER276)
+- [Chase Sapphire Preferred – Apply Now](https://www.referyourchasecard.com/226m/EFWV1I3B5Q)  
+- [Rakuten Cashback Sign-Up](https://www.rakuten.com/r/HUNGER276)  
 - Google Flights  
 - 45,000 Chase Ultimate Rewards Points
 
@@ -42,8 +42,8 @@ $1,200+
 ✅ Enjoy your Paris escape!
 `;
 
-  res.json({ reply });
-});
+res.json({ reply });
+
 
 
 // ✅ Health check
