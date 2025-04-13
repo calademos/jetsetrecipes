@@ -1,121 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jetset Recipe – Paris</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jetset Recipe: Paris Flight</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #fff;
-      color: #333;
       margin: 0;
       padding: 0;
+      background-color: #fff;
+      color: #333;
     }
     header {
-      background: #f5f5f5;
-      padding: 40px;
+      background-color: #f5f5f5;
+      padding: 2rem;
       text-align: center;
     }
-    header h1 {
-      font-size: 2.5rem;
+    h1 {
       margin: 0;
     }
-    .hero {
+    .progress-container {
+      width: 80%;
+      background: #eee;
+      border-radius: 30px;
+      overflow: hidden;
+      margin: 2rem auto;
+    }
+    .progress-bar {
+      height: 25px;
+      background-color: #3b82f6;
+      width: 25%; /* Update this value dynamically */
       text-align: center;
-      padding: 20px;
-      background-color: #eaeaea;
+      color: white;
+      line-height: 25px;
+      font-size: 0.9rem;
     }
     .section {
       max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+      margin: auto;
+      padding: 2rem;
     }
-    .card-banner {
-      background: #dbeafe;
-      border: 2px dashed #3b82f6;
-      padding: 20px;
-      text-align: center;
-      margin-bottom: 30px;
+    .step {
+      background: #f0f0f0;
+      padding: 1rem;
+      margin: 1rem 0;
       border-radius: 10px;
     }
-    .card-banner a {
+    .step.completed {
+      background-color: #d1fae5;
+      border: 1px solid #10b981;
+    }
+    .cta {
       background: #3b82f6;
       color: white;
-      padding: 10px 20px;
       text-decoration: none;
-      border-radius: 6px;
-    }
-    .ingredients, .steps, .summary {
-      margin-bottom: 40px;
-    }
-    h2 {
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
-      font-size: 1.4rem;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    .badge {
+      padding: 0.75rem 1.5rem;
       display: inline-block;
-      background: #dcfce7;
-      color: #166534;
-      padding: 6px 12px;
-      margin: 5px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-    }
-    footer {
-      text-align: center;
-      padding: 40px;
-      font-size: 0.9em;
-      color: #aaa;
+      border-radius: 8px;
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Jetset Recipe: Paris</h1>
-    <p>Follow this delicious recipe to unlock 5 days in Paris for $600 + 50k points.</p>
+    <h1>✈️ Jetset Recipe: Fly to Paris</h1>
+    <p>Follow these steps to book a flight to Paris using points. So simple, it’s almost unfair.</p>
   </header>
 
-  <div class="section card-banner">
-    <p>Start with the right card to unlock this journey:</p>
-    <a href="#">Apply for Chase Sapphire Preferred</a>
+  <div class="progress-container">
+    <div class="progress-bar">Step 1 of 4</div>
   </div>
 
-  <div class="section ingredients">
-    <h2>🥣 Ingredients</h2>
-    <ul>
-      <li>50,000 Chase Ultimate Rewards Points</li>
-      <li>Google Flights</li>
-      <li>Hyatt.com or World of Hyatt App</li>
-      <li>Rakuten (for cashback on transport bookings)</li>
-    </ul>
-  </div>
+  <section class="section">
+    <div class="step completed">
+      <h2>Step 1: Apply for the Right Card</h2>
+      <p>Apply for the <strong>Chase Sapphire Preferred</strong> to start earning points.</p>
+      <a href="#" class="cta">Apply Now</a>
+    </div>
 
-  <div class="section steps">
-    <h2>🍳 Instructions</h2>
-    <ol>
-      <li>Apply and get approved for the Chase Sapphire Preferred.</li>
-      <li>Spend $4,000 in the first 3 months to earn 60k points.</li>
-      <li>Use Chase Travel Portal to book a roundtrip flight to Paris (around 45k points).</li>
-      <li>Book 3 nights at a central Paris Hyatt property with points (15k/night).</li>
-      <li>Use Rakuten for local transport or attraction deals.</li>
-    </ol>
-  </div>
+    <div class="step">
+      <h2>Step 2: Earn Your Welcome Bonus</h2>
+      <p>Spend $4,000 in 3 months to earn 60,000 points.</p>
+    </div>
 
-  <div class="section summary">
-    <h2>🏆 Bonus Points</h2>
-    <div class="badge">✈️ Flight Unlocked</div>
-    <div class="badge">🏨 Hotel Secured</div>
-    <div class="badge">💰 Cashback Applied</div>
-    <div class="badge">⭐ Jetset Level: 1</div>
-  </div>
+    <div class="step">
+      <h2>Step 3: Search for Flights</h2>
+      <p>Use <strong>Google Flights</strong> to find availability to Paris. Note prices and dates.</p>
+    </div>
 
-  <footer>
-    &copy; 2025 Jetset Recipes. All rights reserved.
-  </footer>
+    <div class="step">
+      <h2>Step 4: Book with Points</h2>
+      <p>Use the <strong>Chase Travel Portal</strong> or transfer points to a partner airline to book your trip.</p>
+    </div>
+  </section>
 </body>
 </html>
+
