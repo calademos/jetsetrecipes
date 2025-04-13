@@ -104,18 +104,13 @@
         const data = await res.json();
         const output = (data.reply || "No response.").trim();
         console.log("🧠 AI RAW REPLY →", output);
-        responseBox.innerHTML = marked.parse(output);
+        responseBox.innerHTML = window.marked.parse(output);
       } catch (err) {
         responseBox.innerHTML = "<span style='color: red;'>❌ Error: Could not reach the assistant.</span>";
         console.error(err);
       }
     };
   });
-</script>
-<div id="test" style="margin-top:2rem; background:#fffbe6; padding:1rem; border:1px dashed #facc15; border-radius:6px;"></div>
-<script>
-  const testBox = document.getElementById("test");
-  testBox.innerHTML = marked.parse("Click here for [Google](https://google.com)");
 </script>
 </body>
 </html>
