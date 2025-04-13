@@ -44,7 +44,6 @@
     #response {
       background: #eee;
       padding: 1rem;
-      white-space: pre-wrap;
       border-radius: 6px;
       margin-top: 1rem;
     }
@@ -72,7 +71,7 @@
       const userMessage = document.getElementById("userInput").value;
       const responseBox = document.getElementById("response");
 
-      responseBox.textContent = "Cooking up your strategy...";
+      responseBox.innerHTML = "<em>Cooking up your strategy...</em>";
 
       try {
         const res = await fetch("https://openai-proxy-server-qbp5.onrender.com/ask", {
@@ -85,9 +84,9 @@
 
         const data = await res.json();
         const output = data.reply || "No response.";
-        responseBox.innerHTML = marked.parse(output); // ✅ Render Markdown as HTML
+        responseBox.innerHTML = marked.parse(output);
       } catch (err) {
-        responseBox.textContent = "❌ Error: Could not reach the assistant.";
+        responseBox.innerHTML = "<span style='color: red;'>❌ Error: Could not reach the assistant.</span>";
         console.error(err);
       }
     }
