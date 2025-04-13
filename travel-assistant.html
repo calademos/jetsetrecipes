@@ -7,17 +7,21 @@
 
   <!-- ✅ Enable Markdown Parsing -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script>
-  window.marked = window.marked || marked;
+  <script>
+    window.marked = window.marked || marked;
 
-  const renderer = new marked.Renderer();
-  window.marked.setOptions({
-    breaks: true,
-    gfm: true,
-    renderer: renderer,
-    headerIds: false
-  });
-</script>
+    const renderer = new marked.Renderer();
+    renderer.link = function(href, title, text) {
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+    };
+
+    window.marked.setOptions({
+      breaks: true,
+      gfm: true,
+      renderer: renderer,
+      headerIds: false
+    });
+  </script>
 
   <style>
     body {
