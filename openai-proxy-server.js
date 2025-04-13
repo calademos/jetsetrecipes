@@ -1,107 +1,79 @@
-// Jetset Recipes Secure OpenAI Proxy Server
+// openai-proxy-server.js
 
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const fetch = require('node-fetch');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 10000;
 
+// ✅ CORS for GitHub Pages frontend
 app.use(cors({
   origin: 'https://calademos.github.io'
 }));
+
 app.use(bodyParser.json());
 
+// 🎯 Main AI Endpoint
 app.post('/ask', async (req, res) => {
-  const userMessage = req.body.message.toLowerCase();
+  const userMessage = req.body.message;
 
-  // Dynamic mock response based on input
-  let mockResponse;
+  const prompt = `You are a friendly and expert AI Travel Deals Hacker who builds recipes for smart and budget-friendly trips using travel points, flight routing hacks, and hotel rewards. Always respond in markdown with bold headers, emojis, clickable affiliate links (if provided), and a friendly tone.
 
-  if (userMessage.includes("tokyo")) {
-    mockResponse = `
-    🍽️ **Jetset Recipe: Tokyo Tonkotsu Adventure**
+User Input:
+${userMessage}
 
-    🧂 **Ingredients:**
-    - [60k Amex Points – **Apply Now**](https://americanexpress.com/en-us/referral/gold-card?ref=MATEUGRvFC&xl=cp01) → ANA Mileage Club
-    - 80k IHG Points (20k/night x 4)
-    - [Rakuten Extension](https://www.rakuten.com/r/HUNGER276) 🍱
+Respond using the Jetset Recipe format:
+- **🍽️ Jetset Recipe: [Trip Title]**
+- **🥄 Ingredients:** [List key points + referral links]
+- **👨‍🍳 Prep Steps:** [Step-by-step instructions]
+- **🍷 Flavor Enhancers (Tips):**
+- **⏳ Cooking Time:** [When to book]
+- **💰 Estimated Value:**
+- ✅ Bon appétit!
 
-    🔥 **Prep Steps:**
-    1️⃣ Transfer points to ANA & IHG
-    2️⃣ Search Tokyo flights 21–28 days out
-    3️⃣ Book 4 nights at IHG Tokyo Bay
-    4️⃣ Activate [Rakuten](https://www.rakuten.com/r/HUNGER276) for metro + tour cashback
+Include these referral links:
+- Chase: [Apply Now](https://www.referyourchasecard.com/226m/EFWV1I3B5Q)
+- Amex Gold: [Apply Now](https://americanexpress.com/en-us/referral/gold-card?ref=MATEUGRvFC&xl=cp01)
+- Rakuten: [Sign Up](https://www.rakuten.com/r/HUNGER276)`;
 
-    🍷 **Flavor Enhancers (Tips):**
-    - Use [Amex Gold – **Apply Now**](https://americanexpress.com/en-us/referral/gold-card?ref=MATEUGRvFC&xl=cp01) for restaurant bonus
-    - Check ANA Biz Class availability (mid-week)
+  try {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: "gpt-4",
+        messages: [{ role: "user", content: prompt }],
+        temperature: 0.7,
+      }),
+    });
 
-    🧭 **Cooking Time:**
-    - Prep 1 week before booking window opens
-    - Total value: ~$1800 travel for <$150 cost
+    const data = await response.json();
 
-    ✅ Bon Appétit! Your Tokyo trip is now seasoned to perfection!
-    `;
-  } else if (userMessage.includes("brazil") || userMessage.includes("rio")) {
-    mockResponse = `
-    🍽️ **Jetset Recipe: Brazilian BBQ Getaway**
+    if (data.error) {
+      console.error("OpenAI Error:", data.error);
+      return res.status(500).json({ reply: `⚠️ Error from OpenAI: ${data.error.message}` });
+    }
 
-    🧂 **Ingredients:**
-    - 75k Capital One Miles → TAP
-    - Livelo + Booking.com
-    - Méliuz Extension 🍖
+    const reply = data.choices?.[0]?.message?.content || "⚠️ No reply generated.";
+    res.json({ reply });
 
-    🔥 **Prep Steps:**
-    1️⃣ Transfer miles to TAP Air Portugal
-    2️⃣ Book Rio hotel via Booking.com (Livelo active)
-    3️⃣ Enable [Méliuz](https://www.rakuten.com/r/HUNGER276) for Uber + restaurants
-
-    🍷 **Flavor Enhancers (Tips):**
-    - Venture X for travel credit
-    - GOL + Inter cashback stacking (up to 20%)
-
-    🧭 **Cooking Time:**
-    - Book Tuesday night TAP fare drops
-    - Total value: ~$1500 trip for ~$120 net cost
-
-    ✅ Savor the samba without burning your wallet!
-    `;
-  } else {
-    mockResponse = `
-    🍽️ **Jetset Recipe: French Riviera Delight**
-
-    🧂 **Ingredients:**
-    - [50k Chase UR Points ✈️ – **Apply Now**](https://www.referyourchasecard.com/226m/EFWV1I3B5Q)
-    - 60k Hyatt Points (15k/night)
-    - [Rakuten](https://www.rakuten.com/r/HUNGER276) + CardPointers 🔍
-
-    🔥 **Prep Steps:**
-    1️⃣ Use [Chase Travel Portal – **Apply Now**](https://www.referyourchasecard.com/226m/EFWV1I3B5Q) for Paris flights
-    2️⃣ Book 4-night Hyatt stay
-    3️⃣ Activate Rakuten and CardPointers before paying
-
-    🍷 **Flavor Enhancers (Tips):**
-    - [Sapphire Preferred – **Apply Now**](https://www.referyourchasecard.com/226m/EFWV1I3B5Q)
-    - Air France off-peak award sweet spots
-
-    🧭 **Cooking Time:**
-    - 30–60 days out for best ingredients
-    - Trip Value: ~$1200 → cooked for $100 🔥
-
-    ✅ Voilà! A Parisian feast of savings just for you.
-    `;
+  } catch (error) {
+    console.error("Server Error:", error);
+    res.status(500).json({ reply: "⚠️ Server error. Please try again later." });
   }
-
-  res.json({ reply: mockResponse });
 });
 
-// Add GET / route for health check
+// 🌐 Health Check
 app.get('/', (req, res) => {
-  res.send('✅ Jetset Recipes AI Proxy is running. Use POST /ask to interact.');
+  res.send('✅ Jetset Recipes AI Proxy is running.');
 });
 
 app.listen(port, () => {
-  console.log(`Jetset AI Assistant is running at http://localhost:${port}`);
+  console.log(`🚀 Jetset AI Proxy listening on http://localhost:${port}`);
 });
