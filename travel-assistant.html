@@ -9,6 +9,11 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
   window.marked = window.marked || marked;
+  window.marked.setOptions({
+    breaks: true,
+    gfm: true,
+    sanitize: false
+  });
 </script>
 
   <style>
