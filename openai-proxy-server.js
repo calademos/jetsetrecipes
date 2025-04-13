@@ -17,36 +17,31 @@ app.use(bodyParser.json());
 app.post('/ask', async (req, res) => {
   const userMessage = req.body.message;
 
-  const prompt = `You are an expert AI Travel Deals Hacker with deep knowledge of airline pricing systems, hotel booking strategies, credit card reward programs, and travel insider techniques. Your goal is to help complete beginners travel smarter, cheaper, and better by generating travel "recipes."
+  // Simulated mock response for testing
+  const mockResponse = `
+  ✈️ Strategy Overview:
+  Use Chase Ultimate Rewards to fly to Paris in May. Stay 4 nights using Hyatt points. Combine credit card offers for maximum cashback.
 
-1. Ask the user for: destination, travel dates (if flexible), and travel style.
-2. Analyze for optimal booking routes, cards, timing, and transfer options.
-3. Use only ethical, legal strategies.
+  🔢 Step-by-Step Instructions:
+  1. Book flight via Chase Travel Portal (50k UR points)
+  2. Redeem 15k Hyatt points per night x 4 nights
+  3. Stack Rakuten + CardPointers for bonus tracking
 
-Respond using:
-1. Strategy Overview
-2. Step-by-Step Instructions
-3. Credit Card/Points Tips
-4. Hidden Deal Alerts
-5. Timeline
-6. Estimated Value
+  💳 Credit Card Tips:
+  Use Sapphire Preferred + Rakuten browser extension
 
-User Input:
-${userMessage}`;
+  🕵️ Hidden Deal Alerts:
+  Check off-peak Air France award availability
 
-  try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: prompt }],
-        temperature: 0.7,
-      }),
-    });
+  🕒 Timeline:
+  Book 30–60 days out for best value
+
+  💰 Estimated Value:
+  $1,200 trip for ~$100 out of pocket
+  `;
+
+  res.json({ reply: mockResponse });
+});
 
     const data = await response.json();
     console.log("OpenAI response:", JSON.stringify(data, null, 2));
