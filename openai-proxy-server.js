@@ -21,69 +21,76 @@ app.post('/ask', async (req, res) => {
 
   if (userMessage.includes("tokyo")) {
     mockResponse = `
-    ✈️ Strategy Overview:
-    Use Amex Membership Rewards to fly to Tokyo next month. Stay 4 nights with IHG points. Maximize cashback stacking with local transport deals.
+    🍽️ **Jetset Recipe: Tokyo Tonkotsu Adventure**
 
-    🔢 Step-by-Step Instructions:
-    1. Transfer 60k Amex points to ANA Mileage Club
-    2. Book IHG hotel using 20k points per night x 4 nights
-    3. Use Rakuten for local tours and metro pass cashback
+    🧂 **Ingredients:**
+    - 60k Amex Points → ANA Mileage Club
+    - 80k IHG Points (20k/night x 4)
+    - Rakuten Extension 🍱
 
-    💳 Credit Card Tips:
-    Use Amex Gold + Rakuten for best synergy
+    🔥 **Prep Steps:**
+    1️⃣ Transfer points to ANA & IHG
+    2️⃣ Search Tokyo flights 21–28 days out
+    3️⃣ Book 4 nights at IHG Tokyo Bay
+    4️⃣ Activate Rakuten for metro + tour cashback
 
-    🕵️ Hidden Deal Alerts:
-    Look for ANA Biz Class award seats on weekdays
+    🍷 **Flavor Enhancers (Tips):**
+    - Use Amex Gold for restaurant bonus
+    - Check ANA Biz Class availability (mid-week)
 
-    🕒 Timeline:
-    Book ANA 21–28 days in advance for lowest award rate
+    🧭 **Cooking Time:**
+    - Prep 1 week before booking window opens
+    - Total value: ~$1800 travel for <$150 cost
 
-    💰 Estimated Value:
-    $1,800 trip for under $150 out of pocket
+    ✅ Bon Appétit! Your Tokyo trip is now seasoned to perfection!
     `;
   } else if (userMessage.includes("brazil") || userMessage.includes("rio")) {
     mockResponse = `
-    ✈️ Strategy Overview:
-    Fly to Rio de Janeiro using Capital One Miles. Use Livelo and local app promos to stack deals.
+    🍽️ **Jetset Recipe: Brazilian BBQ Getaway**
 
-    🔢 Step-by-Step Instructions:
-    1. Transfer 75k Capital One Miles to TAP Air Portugal
-    2. Use Livelo + Booking.com combo to reserve hotel
-    3. Activate cashback via Méliuz and Flightradar alerts
+    🧂 **Ingredients:**
+    - 75k Capital One Miles → TAP
+    - Livelo + Booking.com
+    - Méliuz Extension 🍖
 
-    💳 Credit Card Tips:
-    Capital One Venture X + mobile travel partners
+    🔥 **Prep Steps:**
+    1️⃣ Transfer miles to TAP Air Portugal
+    2️⃣ Book Rio hotel via Booking.com (Livelo active)
+    3️⃣ Enable Méliuz for Uber + restaurants
 
-    🕵️ Hidden Deal Alerts:
-    Domestic GOL flights have 20% cashback via Inter
+    🍷 **Flavor Enhancers (Tips):**
+    - Venture X for travel credit
+    - GOL + Inter cashback stacking (up to 20%)
 
-    🕒 Timeline:
-    Book Tuesday night to snag TAP sales
+    🧭 **Cooking Time:**
+    - Book Tuesday night TAP fare drops
+    - Total value: ~$1500 trip for ~$120 net cost
 
-    💰 Estimated Value:
-    $1,500 travel for ~$120 with cashback
+    ✅ Savor the samba without burning your wallet!
     `;
   } else {
     mockResponse = `
-    ✈️ Strategy Overview:
-    Use Chase Ultimate Rewards to fly to Paris in May. Stay 4 nights using Hyatt points. Combine credit card offers for maximum cashback.
+    🍽️ **Jetset Recipe: French Riviera Delight**
 
-    🔢 Step-by-Step Instructions:
-    1. Book flight via Chase Travel Portal (50k UR points)
-    2. Redeem 15k Hyatt points per night x 4 nights
-    3. Stack Rakuten + CardPointers for bonus tracking
+    🧂 **Ingredients:**
+    - 50k Chase UR Points ✈️
+    - 60k Hyatt Points (15k/night)
+    - Rakuten + CardPointers 🔍
 
-    💳 Credit Card Tips:
-    Use Sapphire Preferred + Rakuten browser extension
+    🔥 **Prep Steps:**
+    1️⃣ Use Chase Travel Portal for Paris flights
+    2️⃣ Book 4-night Hyatt stay
+    3️⃣ Activate Rakuten and CardPointers before paying
 
-    🕵️ Hidden Deal Alerts:
-    Check off-peak Air France award availability
+    🍷 **Flavor Enhancers (Tips):**
+    - Sapphire Preferred bonus categories
+    - Air France off-peak award sweet spots
 
-    🕒 Timeline:
-    Book 30–60 days out for best value
+    🧭 **Cooking Time:**
+    - 30–60 days out for best ingredients
+    - Trip Value: ~$1200 → cooked for $100 🔥
 
-    💰 Estimated Value:
-    $1,200 trip for ~$100 out of pocket
+    ✅ Voilà! A Parisian feast of savings just for you.
     `;
   }
 
