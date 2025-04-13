@@ -1,118 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jetset Recipe – Paris</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jetset Recipes - Travel Made Simple</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #fff;
-      color: #333;
       margin: 0;
-      padding: 0;
+      background: #ffffff;
+      color: #333;
+      line-height: 1.6;
     }
     header {
-      background: #f5f5f5;
-      padding: 40px;
+      background: #f0f4f8;
       text-align: center;
+      padding: 4rem 2rem;
     }
     header h1 {
       font-size: 2.5rem;
-      margin: 0;
+      margin: 0 0 1rem;
     }
-    .hero {
-      text-align: center;
-      padding: 20px;
-      background-color: #eaeaea;
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
     }
-    .section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .card-banner {
-      background: #dbeafe;
-      border: 2px dashed #3b82f6;
-      padding: 20px;
-      text-align: center;
-      margin-bottom: 30px;
-      border-radius: 10px;
-    }
-    .card-banner a {
+    .btn {
+      padding: 0.75rem 1.5rem;
       background: #3b82f6;
       color: white;
-      padding: 10px 20px;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
     }
-    .ingredients, .steps, .summary {
-      margin-bottom: 40px;
+    .section {
+      padding: 3rem 2rem;
+      max-width: 960px;
+      margin: auto;
     }
-    h2 {
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
-      font-size: 1.4rem;
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
-    ul {
-      padding-left: 20px;
+    .card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
     }
-    .badge {
-      display: inline-block;
-      background: #dcfce7;
-      color: #166534;
-      padding: 6px 12px;
-      margin: 5px;
-      border-radius: 999px;
-      font-size: 0.9rem;
+    .card h3 {
+      margin-bottom: 1rem;
+    }
+    .cta-section {
+      text-align: center;
+      background: #f5f5f5;
+      padding: 3rem 2rem;
     }
     footer {
       text-align: center;
-      padding: 40px;
-      font-size: 0.9em;
+      padding: 2rem;
+      font-size: 0.9rem;
       color: #aaa;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Jetset Recipe: Paris</h1>
-    <p>Follow this delicious recipe to unlock 5 days in Paris for $600 + 50k points.</p>
+    <h1>Turn Points Into Plane Tickets</h1>
+    <p>Travel like a pro with beginner-friendly Jetset Recipes. Just follow the steps.</p>
+    <a href="paris.html" class="btn">Try Your First Recipe</a>
   </header>
 
-  <div class="section card-banner">
-    <p>Start with the right card to unlock this journey:</p>
-    <a href="#">Apply for Chase Sapphire Preferred</a>
-  </div>
+  <section class="section">
+    <h2 style="text-align:center;">How It Works</h2>
+    <div class="steps">
+      <div class="card">
+        <h3>1. Pick a Destination</h3>
+        <p>Choose where you want to go from our curated recipe list.</p>
+      </div>
+      <div class="card">
+        <h3>2. Follow the Recipe</h3>
+        <p>Use points, cards, and tools—like ingredients in a dish—to unlock your trip.</p>
+      </div>
+      <div class="card">
+        <h3>3. Travel & Share</h3>
+        <p>Book your flight, pack your bags, and post your success. Easy!</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="section ingredients">
-    <h2>🧵 Ingredients</h2>
-    <ul>
-      <li>50,000 Chase Ultimate Rewards Points</li>
-      <li>Google Flights</li>
-      <li>Hyatt.com or World of Hyatt App</li>
-      <li>Rakuten (for cashback on transport bookings)</li>
-    </ul>
-  </div>
+  <section class="section">
+    <h2 style="text-align:center;">Recipe Preview</h2>
+    <div class="card">
+      <h3>✈️ Fly to Paris for $200 + Points</h3>
+      <p>Use our recipe to unlock 5 days in Paris with a welcome bonus from a single credit card.</p>
+      <a href="paris.html" class="btn">View Recipe</a>
+    </div>
+  </section>
 
-  <div class="section steps">
-    <h2>🍳 Instructions</h2>
-    <ol>
-      <li>Apply and get approved for the Chase Sapphire Preferred.</li>
-      <li>Spend $4,000 in the first 3 months to earn 60k points.</li>
-      <li>Use Chase Travel Portal to book a roundtrip flight to Paris (around 45k points).</li>
-      <li>Book 3 nights at a central Paris Hyatt property with points (15k/night).</li>
-      <li>Use Rakuten for local transport or attraction deals.</li>
-    </ol>
-  </div>
-
-  <div class="section summary">
-    <h2>🏆 Bonus Points</h2>
-    <div class="badge">✈️ Flight Unlocked</div>
-    <div class="badge">🏨 Hotel Secured</div>
-    <div class="badge">💰 Cashback Applied</div>
-    <div class="badge">⭐ Jetset Level: 1</div>
-  </div>
+  <section class="cta-section">
+    <h2>Refer a Friend. Get a Free Recipe.</h2>
+    <p>Every time you invite someone to join Jetset Recipes, you get another recipe unlock. Simple.</p>
+    <a href="#" class="btn">Invite a Friend</a>
+  </section>
 
   <footer>
     &copy; 2025 Jetset Recipes. All rights reserved.
