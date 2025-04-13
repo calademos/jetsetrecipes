@@ -77,7 +77,7 @@
 </head>
 <body>
   <div id="chatbox">
-    <h2>Jetset Recipes – AI Travel Deals Chef</h2>
+    <h2>Jetset Recipes – AI Travel Deals Hacker</h2>
     <p>Enter your destination, travel dates (if flexible), and travel style. Our AI chef will cook up a custom travel savings recipe!</p>
     <textarea id="userInput" placeholder="e.g. I want to fly to Paris next month, have Chase points, prefer business class..."></textarea>
     <button onclick="getResponse()">Get My Travel Recipe</button>
@@ -103,12 +103,8 @@
       const output = (data.reply || "No response.").trim();
       console.log("🧠 AI RAW REPLY →", output);
 
-      // Fallback if content includes raw markdown as plain text
-      if (output.includes('http') && !output.includes('<a')) {
-        responseBox.innerHTML = marked.parse(output);
-      } else {
-        responseBox.innerHTML = marked.parse(output);
-      }
+      // ✅ Always parse markdown from AI
+      responseBox.innerHTML = window.marked.parse(output);
     } catch (err) {
       responseBox.innerHTML = "<span style='color: red;'>❌ Error: Could not reach the assistant.</span>";
       console.error(err);
