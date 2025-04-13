@@ -1,24 +1,19 @@
-// openai-proxy-server.js (mocked version)
-
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors({
-  origin: 'https://calademos.github.io'
-}));
-
+app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
 
-// ✅ POST endpoint that sends a mocked markdown response
-app.post('/ask', async (req, res) => {
+app.post("/ask", async (req, res) => {
   const userMessage = req.body.message;
 
-  // Mock response (hardcoded markdown with clickable links)
-const reply = `
+  // ✅ Hardcoded mock response to test clickable markdown links
+  const reply = `
 ### ✈️ Jetset Recipe: Paris on Points
 
 #### 🥄 Ingredients
@@ -42,15 +37,13 @@ $1,200+
 ✅ Enjoy your Paris escape!
 `;
 
-res.json({ reply });
+  res.json({ reply });
+});
 
-
-
-// ✅ Health check
-app.get('/', (req, res) => {
-  res.send('✅ Jetset Proxy is live (mock mode)');
+app.get("/", (req, res) => {
+  res.send("✅ Jetset Recipes AI Proxy is running. Use POST /ask to interact.");
 });
 
 app.listen(port, () => {
-  console.log(`🚀 Jetset Proxy (mock mode) running at http://localhost:${port}`);
+  console.log(`Jetset AI Assistant is running at http://localhost:${port}`);
 });
