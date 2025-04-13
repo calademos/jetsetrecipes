@@ -14,30 +14,78 @@ app.use(cors({
 app.use(bodyParser.json());
 
 app.post('/ask', async (req, res) => {
-  const userMessage = req.body.message;
+  const userMessage = req.body.message.toLowerCase();
 
-  // Simulated mock response for testing
-  const mockResponse = `
-  ✈️ Strategy Overview:
-  Use Chase Ultimate Rewards to fly to Paris in May. Stay 4 nights using Hyatt points. Combine credit card offers for maximum cashback.
+  // Dynamic mock response based on input
+  let mockResponse;
 
-  🔢 Step-by-Step Instructions:
-  1. Book flight via Chase Travel Portal (50k UR points)
-  2. Redeem 15k Hyatt points per night x 4 nights
-  3. Stack Rakuten + CardPointers for bonus tracking
+  if (userMessage.includes("tokyo")) {
+    mockResponse = `
+    ✈️ Strategy Overview:
+    Use Amex Membership Rewards to fly to Tokyo next month. Stay 4 nights with IHG points. Maximize cashback stacking with local transport deals.
 
-  💳 Credit Card Tips:
-  Use Sapphire Preferred + Rakuten browser extension
+    🔢 Step-by-Step Instructions:
+    1. Transfer 60k Amex points to ANA Mileage Club
+    2. Book IHG hotel using 20k points per night x 4 nights
+    3. Use Rakuten for local tours and metro pass cashback
 
-  🕵️ Hidden Deal Alerts:
-  Check off-peak Air France award availability
+    💳 Credit Card Tips:
+    Use Amex Gold + Rakuten for best synergy
 
-  🕒 Timeline:
-  Book 30–60 days out for best value
+    🕵️ Hidden Deal Alerts:
+    Look for ANA Biz Class award seats on weekdays
 
-  💰 Estimated Value:
-  $1,200 trip for ~$100 out of pocket
-  `;
+    🕒 Timeline:
+    Book ANA 21–28 days in advance for lowest award rate
+
+    💰 Estimated Value:
+    $1,800 trip for under $150 out of pocket
+    `;
+  } else if (userMessage.includes("brazil") || userMessage.includes("rio")) {
+    mockResponse = `
+    ✈️ Strategy Overview:
+    Fly to Rio de Janeiro using Capital One Miles. Use Livelo and local app promos to stack deals.
+
+    🔢 Step-by-Step Instructions:
+    1. Transfer 75k Capital One Miles to TAP Air Portugal
+    2. Use Livelo + Booking.com combo to reserve hotel
+    3. Activate cashback via Méliuz and Flightradar alerts
+
+    💳 Credit Card Tips:
+    Capital One Venture X + mobile travel partners
+
+    🕵️ Hidden Deal Alerts:
+    Domestic GOL flights have 20% cashback via Inter
+
+    🕒 Timeline:
+    Book Tuesday night to snag TAP sales
+
+    💰 Estimated Value:
+    $1,500 travel for ~$120 with cashback
+    `;
+  } else {
+    mockResponse = `
+    ✈️ Strategy Overview:
+    Use Chase Ultimate Rewards to fly to Paris in May. Stay 4 nights using Hyatt points. Combine credit card offers for maximum cashback.
+
+    🔢 Step-by-Step Instructions:
+    1. Book flight via Chase Travel Portal (50k UR points)
+    2. Redeem 15k Hyatt points per night x 4 nights
+    3. Stack Rakuten + CardPointers for bonus tracking
+
+    💳 Credit Card Tips:
+    Use Sapphire Preferred + Rakuten browser extension
+
+    🕵️ Hidden Deal Alerts:
+    Check off-peak Air France award availability
+
+    🕒 Timeline:
+    Book 30–60 days out for best value
+
+    💰 Estimated Value:
+    $1,200 trip for ~$100 out of pocket
+    `;
+  }
 
   res.json({ reply: mockResponse });
 });
