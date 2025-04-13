@@ -103,8 +103,13 @@
 
         const data = await res.json();
         const output = (data.reply || "No response.").trim();
-        console.log("🧠 AI RAW REPLY →", output);
-        responseBox.innerHTML = window.marked.parse(output);
+
+// Fixes broken escape sequences if any were inserted:
+const clean = output.replace(/\\n/g, '\n').replace(/\\r/g, '').replace(/\\t/g, '\t');
+
+// Convert to HTML with Markdown and inject:
+responseBox.innerHTML = marked.parse(clean);
+
       } catch (err) {
         responseBox.innerHTML = "<span style='color: red;'>❌ Error: Could not reach the assistant.</span>";
         console.error(err);
