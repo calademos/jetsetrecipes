@@ -67,10 +67,11 @@
   </div>
 
   <script>
-    async function getResponse() {
-      const userMessage = document.getElementById("userInput").value;
-      const responseBox = document.getElementById("response");
+  document.addEventListener("DOMContentLoaded", () => {
+    const responseBox = document.getElementById("response");
 
+    window.getResponse = async function () {
+      const userMessage = document.getElementById("userInput").value;
       responseBox.innerHTML = "<em>Cooking up your strategy...</em>";
 
       try {
@@ -89,7 +90,8 @@
         responseBox.innerHTML = "<span style='color: red;'>❌ Error: Could not reach the assistant.</span>";
         console.error(err);
       }
-    }
-  </script>
+    };
+  });
+</script>
 </body>
 </html>
