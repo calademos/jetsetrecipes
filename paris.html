@@ -96,7 +96,7 @@
     <div class="card">
       <h3>✈️ Fly to Paris for $200 + Points</h3>
       <p>Use our recipe to unlock 5 days in Paris with a welcome bonus from a single credit card.</p>
-      <a href="paris.html" class="btn">View Recipe</a>
+      <a href="paris.html" class="btn" onclick="localStorage.setItem('paris_started', 'true')">View Recipe</a>
     </div>
   </section>
 
@@ -109,5 +109,18 @@
   <footer>
     &copy; 2025 Jetset Recipes. All rights reserved.
   </footer>
+<script>
+  // Show a simple message if the user has started the recipe
+  document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('paris_started') === 'true') {
+      const recipeCard = document.querySelector('.card');
+      const badge = document.createElement('p');
+      badge.textContent = '🟢 You started this recipe!';
+      badge.style.color = '#16a34a';
+      badge.style.fontWeight = 'bold';
+      recipeCard.appendChild(badge);
+    }
+  });
+</script>
 </body>
 </html>
