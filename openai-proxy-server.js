@@ -24,18 +24,18 @@ app.post('/ask', async (req, res) => {
     🍽️ **Jetset Recipe: Tokyo Tonkotsu Adventure**
 
     🧂 **Ingredients:**
-    - 60k Amex Points → ANA Mileage Club
+    - [60k Amex Points – **Apply Now**](https://americanexpress.com/en-us/referral/gold-card?ref=MATEUGRvFC&xl=cp01) → ANA Mileage Club
     - 80k IHG Points (20k/night x 4)
-    - Rakuten Extension 🍱
+    - [Rakuten Extension](https://www.rakuten.com/r/HUNGER276) 🍱
 
     🔥 **Prep Steps:**
     1️⃣ Transfer points to ANA & IHG
     2️⃣ Search Tokyo flights 21–28 days out
     3️⃣ Book 4 nights at IHG Tokyo Bay
-    4️⃣ Activate Rakuten for metro + tour cashback
+    4️⃣ Activate [Rakuten](https://www.rakuten.com/r/HUNGER276) for metro + tour cashback
 
     🍷 **Flavor Enhancers (Tips):**
-    - Use Amex Gold for restaurant bonus
+    - Use [Amex Gold – **Apply Now**](https://americanexpress.com/en-us/referral/gold-card?ref=MATEUGRvFC&xl=cp01) for restaurant bonus
     - Check ANA Biz Class availability (mid-week)
 
     🧭 **Cooking Time:**
@@ -56,7 +56,7 @@ app.post('/ask', async (req, res) => {
     🔥 **Prep Steps:**
     1️⃣ Transfer miles to TAP Air Portugal
     2️⃣ Book Rio hotel via Booking.com (Livelo active)
-    3️⃣ Enable Méliuz for Uber + restaurants
+    3️⃣ Enable [Méliuz](https://www.rakuten.com/r/HUNGER276) for Uber + restaurants
 
     🍷 **Flavor Enhancers (Tips):**
     - Venture X for travel credit
@@ -73,17 +73,17 @@ app.post('/ask', async (req, res) => {
     🍽️ **Jetset Recipe: French Riviera Delight**
 
     🧂 **Ingredients:**
-    - 50k Chase UR Points ✈️
+    - [50k Chase UR Points ✈️ – **Apply Now**](https://www.referyourchasecard.com/226m/EFWV1I3B5Q)
     - 60k Hyatt Points (15k/night)
-    - Rakuten + CardPointers 🔍
+    - [Rakuten](https://www.rakuten.com/r/HUNGER276) + CardPointers 🔍
 
     🔥 **Prep Steps:**
-    1️⃣ Use Chase Travel Portal for Paris flights
+    1️⃣ Use [Chase Travel Portal – **Apply Now**](https://www.referyourchasecard.com/226m/EFWV1I3B5Q) for Paris flights
     2️⃣ Book 4-night Hyatt stay
     3️⃣ Activate Rakuten and CardPointers before paying
 
     🍷 **Flavor Enhancers (Tips):**
-    - Sapphire Preferred bonus categories
+    - [Sapphire Preferred – **Apply Now**](https://www.referyourchasecard.com/226m/EFWV1I3B5Q)
     - Air France off-peak award sweet spots
 
     🧭 **Cooking Time:**
