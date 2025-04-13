@@ -44,6 +44,14 @@
       border-radius: 6px;
       margin-top: 1rem;
     }
+    a {
+      color: #1a73e8;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -52,7 +60,7 @@
     <p>Enter your destination, travel dates (if flexible), and travel style. Our AI chef will cook up a custom travel savings recipe!</p>
     <textarea id="userInput" placeholder="e.g. I want to fly to Paris next month, have Chase points, prefer business class..."></textarea>
     <button onclick="getResponse()">Get My Travel Recipe</button>
-    <pre id="response"></pre>
+    <pre id="response">Waiting for input...</pre>
   </div>
 
   <script>
@@ -62,17 +70,22 @@
 
       responseBox.textContent = "Cooking up your strategy...";
 
-      const res = await fetch("https://openai-proxy-server-qbp5.onrender.com/ask", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message: userMessage }),
-      });
+      try {
+        const res = await fetch("https://openai-proxy-server-qbp5.onrender.com/ask", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: userMessage }),
+        });
 
-      const data = await res.json();
-      const output = data.reply || "No response.";
-      responseBox.innerHTML = output; // Allow clickable HTML links
+        const data = await res.json();
+        const output = data.reply || "No response.";
+        responseBox.innerHTML = output; // ✅ makes referral links clickable
+      } catch (err) {
+        responseBox.textContent = "❌ Error: Could not reach the assistant.";
+        console.error(err);
+      }
     }
   </script>
 </body>
