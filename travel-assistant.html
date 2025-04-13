@@ -62,40 +62,16 @@
 
       responseBox.textContent = "Cooking up your strategy...";
 
-      const prompt = `You are an expert AI Travel Deals Hacker with deep knowledge of airline pricing systems, hotel booking strategies, credit card reward programs, and travel insider techniques. Your goal is to help complete beginners travel smarter, cheaper, and better by generating travel \"recipes.\" Follow these rules:
-
-1. Ask the user for: destination, travel dates (if flexible), and travel style.
-2. Analyze for optimal booking routes, cards, timing, and transfer options.
-3. Use only ethical, legal strategies.
-
-Respond using:
-1. Strategy Overview
-2. Step-by-Step Instructions
-3. Credit Card/Points Tips
-4. Hidden Deal Alerts
-5. Timeline
-6. Estimated Value
-
-User Input:
-${userMessage}`;
-
-      const apiKey = ; // Replace this with your actual OpenAI API key
-
-      const res = await fetch("https://api.openai.com/v1/chat/completions", {
+      const res = await fetch("https://openai-proxy-server-qbp5.onrender.com/ask", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
         },
-        body: JSON.stringify({
-          model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: prompt }],
-          temperature: 0.7,
-        }),
+        body: JSON.stringify({ message: userMessage }),
       });
 
       const data = await res.json();
-      const output = data.choices?.[0]?.message?.content || "No response.";
+      const output = data.reply || "No response.";
       responseBox.textContent = output;
     }
   </script>
