@@ -1,115 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jetset Recipes AI Assistant</title>
+// openai-proxy-server.js
 
-  <!-- ✅ Enable Markdown Parsing -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    window.marked = window.marked || marked;
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const fetch = require('node-fetch');
+require('dotenv').config();
 
-    const renderer = new marked.Renderer();
-    renderer.link = function(href, title, text) {
-      return `<a href="${href}" target="_blank" rel="noopener noreferrer">${text}</a>`;
-    };
+const app = express();
+const port = process.env.PORT || 3000;
 
-    window.marked.setOptions({
-      breaks: true,
-      gfm: true,
-      renderer: renderer,
-      headerIds: false
+// ✅ Allow frontend origin (GitHub Pages)
+app.use(cors({
+  origin: 'https://calademos.github.io'
+}));
+
+app.use(bodyParser.json());
+
+// ✅ Proxy POST /ask
+app.post('/ask', async (req, res) => {
+  const userMessage = req.body.message;
+
+  const prompt = `You are a travel planning assistant. Return your response in **GitHub-flavored Markdown**. Use valid [text](url) links for all referral links and travel tools.
+
+User request:
+${userMessage}
+`;
+
+  try {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: 'gpt-3.5-turbo',
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.7,
+      }),
     });
-  </script>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 2rem;
-    }
-    #chatbox {
-      width: 100%;
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    textarea {
-      width: 100%;
-      height: 100px;
-      margin-top: 1rem;
-      padding: 10px;
-      font-size: 1rem;
-    }
-    button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      background-color: #3b82f6;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    #response {
-      background: #fdfdfd;
-      padding: 1rem;
-      border-radius: 6px;
-      margin-top: 1rem;
-      line-height: 1.6;
-      word-wrap: break-word;
-      overflow-wrap: anywhere;
-    }
-    #response a {
-      color: #1a73e8;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    #response a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <div id="chatbox">
-    <h2>Jetset Recipes – AI Travel Deals Hacker</h2>
-    <p>Enter your destination, travel dates (if flexible), and travel style. Our AI chef will cook up a custom travel savings recipe!</p>
-    <textarea id="userInput" placeholder="e.g. I want to fly to Paris next month, have Chase points, prefer business class..."></textarea>
-    <button onclick="getResponse()">Get My Travel Recipe</button>
-    <div id="response">Waiting for input...</div>
-  </div>
+    const data = await response.json();
 
-  <script>
-  async function getResponse() {
-    const userMessage = document.getElementById("userInput").value;
-    const responseBox = document.getElementById("response");
-    responseBox.innerHTML = "<em>Cooking up your strategy...</em>";
-
-    try {
-      const res = await fetch("https://openai-proxy-server-qbp5.onrender.com/ask", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message: userMessage }),
-      });
-
-      const data = await res.json();
-      const output = (data.reply || "No response.").trim();
-      console.log("🧠 AI RAW REPLY →", output);
-
-      // ✅ Always parse markdown from AI
-      responseBox.innerHTML = window.marked.parse(output);
-    } catch (err) {
-      responseBox.innerHTML = "<span style='color: red;'>❌ Error: Could not reach the assistant.</span>";
-      console.error(err);
+    if (data.error) {
+      console.error('OpenAI API Error:', data.error);
+      return res.status(500).json({ reply: `⚠️ Error: ${data.error.message}` });
     }
+
+    const reply = data.choices?.[0]?.message?.content || '⚠️ No response received.';
+    res.json({ reply });
+
+  } catch (err) {
+    console.error('Proxy Server Error:', err);
+    res.status(500).json({ reply: '⚠️ Proxy error. Please try again later.' });
   }
-  </script>
-</body>
-</html>
+});
+
+// ✅ Health check
+app.get('/', (req, res) => {
+  res.send('✅ Jetset Proxy running');
+});
+
+app.listen(port, () => {
+  console.log(`🚀 Jetset Proxy listening at http://localhost:${port}`);
+});
