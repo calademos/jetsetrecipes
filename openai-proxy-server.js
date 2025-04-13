@@ -3,7 +3,6 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const fetch = require('node-fetch');
 require('dotenv').config();
 
 const app = express();
@@ -41,20 +40,6 @@ app.post('/ask', async (req, res) => {
   `;
 
   res.json({ reply: mockResponse });
-});
-
-    const data = await response.json();
-    console.log("OpenAI response:", JSON.stringify(data, null, 2));
-
-    if (data.choices?.[0]?.message?.content) {
-      res.json({ reply: data.choices[0].message.content });
-    } else {
-      res.json({ reply: "⚠️ Received unexpected response format from OpenAI." });
-    }
-  } catch (error) {
-    console.error('OpenAI API error:', error);
-    res.status(500).json({ reply: '❌ Failed to get a response from the travel assistant. Please try again later.' });
-  }
 });
 
 // Add GET / route for health check
