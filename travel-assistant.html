@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jetset Recipes AI Assistant</title>
+
+  <!-- ✅ Enable Markdown Parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -81,7 +85,7 @@
 
         const data = await res.json();
         const output = data.reply || "No response.";
-        responseBox.innerHTML = output; // ✅ enables clickable HTML output
+        responseBox.innerHTML = marked.parse(output); // ✅ Render Markdown as HTML
       } catch (err) {
         responseBox.textContent = "❌ Error: Could not reach the assistant.";
         console.error(err);
