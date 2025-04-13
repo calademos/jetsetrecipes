@@ -104,5 +104,10 @@
     };
   });
 </script>
+<div id="test" style="margin-top:2rem; background:#fffbe6; padding:1rem; border:1px dashed #facc15; border-radius:6px;"></div>
+<script>
+  const testBox = document.getElementById("test");
+  testBox.innerHTML = window.marked.parse("Click here for [Google](https://google.com)");
+</script>
 </body>
 </html>
