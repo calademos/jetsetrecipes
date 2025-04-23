@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jetset Recipe: Fly to Paris</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #f5f5f5;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    .progress-container {
+      width: 80%;
+      background: #eee;
+      border-radius: 30px;
+      overflow: hidden;
+      margin: 2rem auto;
+    }
+    .progress-bar {
+      height: 25px;
+      background-color: #3b82f6;
+      width: 0%;
+      text-align: center;
+      color: white;
+      line-height: 25px;
+      font-size: 0.9rem;
+      transition: width 0.3s;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .steps {
+      flex: 2;
+    }
+    .step {
+      background: #f0f0f0;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .step.completed {
+      background: #d1fae5;
+      border: 1px solid #10b981;
+    }
+    .step h2 {
+      margin-top: 0;
+    }
+    .ingredients {
+      flex: 1;
+      margin-left: 2rem;
+      background: #fff8dc;
+      border-left: 4px solid #facc15;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .ingredients h3 {
+      margin-top: 0;
+    }
+    .ingredients ul {
+      padding-left: 20px;
+    }
+    .complete {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .complete img {
+      width: 250px;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+    .hidden {
+      display: none;
+    }
+    .cook-time {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    .video-container {
+      margin-top: 1rem;
+    }
+    iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jetset Recipe: Fly to Paris</h1>
+    <p>Follow these steps to fly to Paris using points. It’s simple, fun, and deliciously rewarding.</p>
+  </header>
+
+  <div class="cook-time">🍳 Approximate Cook Time: 3–8 weeks</div>
+
+  <div class="progress-container">
+    <div id="progressBar" class="progress-bar">Step 0 of 4</div>
+  </div>
+
+  <div class="container">
+    <div class="steps">
+      <div class="step" onclick="toggleStep(1)">
+        <h2>Step 1: Apply for the Right Card</h2>
+        <p>Use our <strong><a href="https://www.referyourchasecard.com/226m/EFWV1I3B5Q" target="_blank">Chase Sapphire Preferred referral link</a></strong> to earn a 60k point bonus. This card is widely considered the best starter card for travel rewards.</p>
+      </div>
+      <div class="step" onclick="toggleStep(2)">
+        <h2>Step 2: Earn Your Welcome Bonus</h2>
+        <p>Spend $4,000 in 3 months on everyday expenses like groceries and bills. This will unlock the full 60k bonus points.</p>
+      </div>
+      <div class="step" onclick="toggleStep(3)">
+        <h2>Step 3: Search for Flights</h2>
+        <p>Use <a href="https://www.google.com/flights" target="_blank">Google Flights</a>, <a href="https://www.point.me" target="_blank">Point.me</a>, or <a href="https://www.seatspy.com" target="_blank">SeatSpy</a> to check Paris award availability. Tutorials available on blogs like One Mile at a Time and The Points Guy.</p>
+      </div>
+      <div class="step" onclick="toggleStep(4)">
+        <h2>Step 4: Book with Points</h2>
+        <p>Transfer points from Chase to Flying Blue (Air France/KLM). Book as low as 15k–25k points for off-peak flights to Paris. Verify prices with <a href="https://awardhacker.com" target="_blank">AwardHacker</a>.</p>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/7Rc4WTUsJjg" title="How to Transfer Chase Points to Flying Blue" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <aside class="ingredients">
+      <h3>Ingredients</h3>
+      <ul>
+        <li><a href="https://www.referyourchasecard.com/226m/EFWV1I3B5Q" target="_blank">Chase Sapphire Preferred</a></li>
+        <li><a href="https://www.rakuten.com/r/HUNGER276" target="_blank">Rakuten Extension</a></li>
+        <li><a href="https://www.point.me" target="_blank">Point.me</a></li>
+        <li><a href="https://www.google.com/flights" target="_blank">Google Flights</a></li>
+        <li><a href="https://www.seatspy.com" target="_blank">SeatSpy</a></li>
+        <li><a href="https://awardhacker.com" target="_blank">AwardHacker</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="complete hidden" id="endScreen">
+    <img src="tower.png" alt="Eiffel Tower">
+    <h2>Bon Appétit! Your dish is ready: Paris awaits.</h2>
+    <p>Value cooked: ~$1,200 trip for <$100 out of pocket.</p>
+  </div>
+
+  <script>
+    let completedSteps = 0;
+    const steps = document.querySelectorAll('.step');
+
+    function toggleStep(stepNum) {
+      const step = steps[stepNum - 1];
+      const bar = document.getElementById('progressBar');
+      const wasCompleted = step.classList.contains('completed');
+
+      if (wasCompleted) {
+        step.classList.remove('completed');
+        completedSteps--;
+      } else {
+        step.classList.add('completed');
+        completedSteps++;
+      }
+
+      const percent = (completedSteps / steps.length) * 100;
+      bar.style.width = percent + '%';
+      bar.textContent = `Step ${completedSteps} of 4`;
+
+      const endScreen = document.getElementById('endScreen');
+      if (completedSteps === 4) {
+        endScreen.classList.remove('hidden');
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      } else {
+        endScreen.classList.add('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
