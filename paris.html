@@ -11,13 +11,13 @@
       margin: 0;
       padding: 0;
     }
-    header {
-      background-image: url('banner_paris.png');
-      background-size: cover;
-      background-position: center;
-      padding: 12rem 2rem 2rem;
-      text-align: center;
+
+    header img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
+
     .progress-container {
       width: 100%;
       max-width: 1000px;
@@ -29,6 +29,7 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       margin: auto;
     }
+
     .progress-bar {
       height: 25px;
       background-color: #3b82f6;
@@ -40,6 +41,7 @@
       border-radius: 20px;
       transition: width 0.3s;
     }
+
     .container {
       display: flex;
       flex-direction: column;
@@ -48,9 +50,11 @@
       margin: auto;
       padding: 2rem;
     }
+
     .steps {
       flex: 2;
     }
+
     .step {
       background: #f0f0f0;
       padding: 1rem;
@@ -58,13 +62,16 @@
       border-radius: 10px;
       cursor: pointer;
     }
+
     .step.completed {
       background: #d1fae5;
       border: 1px solid #10b981;
     }
+
     .step h2 {
       margin-top: 0;
     }
+
     .step img {
       width: 98%;
       max-width: 580px;
@@ -76,6 +83,7 @@
       margin-left: auto;
       margin-right: auto;
     }
+
     .ingredients {
       flex: 1;
       background: #fff8dc;
@@ -83,30 +91,37 @@
       padding: 1rem;
       border-radius: 8px;
     }
+
     .ingredients h3 {
       margin-top: 0;
     }
+
     .ingredients ul {
       padding-left: 20px;
     }
+
     .complete {
       text-align: center;
       margin-top: 3rem;
     }
+
     .complete img {
       width: 250px;
       margin-bottom: 1rem;
       border-radius: 8px;
     }
+
     .hidden {
       display: none;
     }
+
     .cook-time {
       text-align: center;
       font-style: italic;
       margin-bottom: 1rem;
       color: #555;
     }
+
     img {
       max-width: 100%;
       height: auto;
@@ -132,7 +147,9 @@
   </style>
 </head>
 <body>
-  <header></header>
+  <header>
+    <img src="banner_paris.png" alt="Jetset Recipe Banner">
+  </header>
   <div class="cook-time">🍳 Approximate Cook Time: 3–8 weeks</div>
 
   <div class="progress-container">
