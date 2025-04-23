@@ -15,7 +15,7 @@
       background-image: url('banner_paris.png');
       background-size: cover;
       background-position: center;
-      padding: 12rem 2rem 2rem; /* Increase height to maintain image spacing */
+      padding: 12rem 2rem 2rem;
       text-align: center;
     }
     .progress-container {
@@ -27,6 +27,7 @@
       background: #fff;
       padding: 1rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      margin: auto;
     }
     .progress-bar {
       height: 25px;
@@ -46,12 +47,6 @@
       max-width: 1000px;
       margin: auto;
       padding: 2rem;
-    }
-    @media (min-width: 768px) {
-      .container {
-        flex-direction: row;
-        justify-content: space-between;
-      }
     }
     .steps {
       flex: 2;
@@ -112,6 +107,28 @@
       margin-bottom: 1rem;
       color: #555;
     }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .steps {
+        flex: 2;
+        max-width: 65%;
+      }
+
+      .ingredients {
+        flex: 1;
+        max-width: 30%;
+        margin-left: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -125,19 +142,23 @@
   <div class="container">
     <div class="steps">
       <div class="step" onclick="toggleStep(1)" title="Start here! Apply for a great travel card with a bonus.">
-        <h2>Step 1: Apply for the Right Card</h2><br><img src="chase.png" alt="Chase Card Application">
+        <h2>Step 1: Apply for the Right Card</h2>
+        <img src="chase.png" alt="Chase Card Application">
         <p>Use our <strong><a href="https://www.referyourchasecard.com/226m/EFWV1I3B5Q" target="_blank">Chase Sapphire Preferred referral link</a></strong> to earn a 60k point bonus. This card is widely considered the best starter card for travel rewards.</p>
       </div>
       <div class="step" onclick="toggleStep(2)" title="What's a welcome bonus? It’s a big point reward after your first few months of spending.">
-        <h2>Step 2: Earn Your Welcome Bonus</h2><br><img src="minspend.png" alt="Spending Tracker Example">
+        <h2>Step 2: Earn Your Welcome Bonus</h2>
+        <img src="minspend.png" alt="Spending Tracker Example">
         <p>Spend $4,000 in 3 months on everyday expenses like groceries and bills. This will unlock the full 60k bonus points.</p>
       </div>
       <div class="step" onclick="toggleStep(3)" title="Search for flights that allow point bookings with award tools.">
-        <h2>Step 3: Search for Flights</h2><br><img src="award.png" alt="Google Flights Search">
+        <h2>Step 3: Search for Flights</h2>
+        <img src="award.png" alt="Google Flights Search">
         <p>Use <a href="https://www.google.com/flights" target="_blank">Google Flights</a>, <a href="https://www.point.me" target="_blank">Point.me</a>, <a href="https://www.seats.aero" target="_blank">Seats.aero</a>, or <a href="https://www.roame.travel" target="_blank">Roame.travel</a> to check award space. Look for dates with low point redemptions.</p>
       </div>
       <div class="step" onclick="toggleStep(4)" title="You’ll transfer points to a loyalty program like Flying Blue, then book.">
-        <h2>Step 4: Book with Points</h2><br><img src="transfer.png" alt="Transfer Points Screenshot">
+        <h2>Step 4: Book with Points</h2>
+        <img src="transfer.png" alt="Transfer Points Screenshot">
         <p>Transfer points from Chase to Flying Blue (Air France/KLM). Book as low as 15k–25k points for off-peak flights to Paris.</p>
       </div>
     </div>
@@ -159,7 +180,7 @@
   <div class="complete hidden" id="endScreen">
     <img src="tower.png" alt="Eiffel Tower">
     <h2>Bon Appétit! Your dish is ready: Paris awaits.</h2>
-    <p>Value cooked: ~$1,200 trip for <$100 out of pocket.</p>
+    <p>Value cooked: ~$1,200 trip for &lt;$100 out of pocket.</p>
   </div>
 
   <script>
