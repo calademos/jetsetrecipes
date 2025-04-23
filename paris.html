@@ -12,10 +12,36 @@
       padding: 0;
     }
 
-    header img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .hero-banner {
+      background-image: url('banner_paris.png');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 90%;
+    }
+
+    .hero-banner h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-banner p {
+      font-size: 1.25rem;
+      margin: 1rem 0 0;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     }
 
     .progress-container {
@@ -147,9 +173,13 @@
   </style>
 </head>
 <body>
-  <header>
-    <img src="banner_paris.png" alt="Jetset Recipe Banner">
+  <header class="hero-banner">
+    <div class="overlay">
+      <h1>Jetset Recipe: Fly to Paris</h1>
+      <p>Follow these steps to fly to Paris using points. It’s simple, fun,<br>and deliciously rewarding.</p>
+    </div>
   </header>
+
   <div class="cook-time">🍳 Approximate Cook Time: 3–8 weeks</div>
 
   <div class="progress-container">
