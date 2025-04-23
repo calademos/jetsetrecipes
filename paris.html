@@ -2,29 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jetset Recipe: Fly to Paris</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      background: #fff;
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: row;
-    }
-    .main-content {
-      flex: 3;
-      padding: 2rem;
     }
     header {
       background: #f5f5f5;
       padding: 2rem;
       text-align: center;
-      border-bottom: 1px solid #ddd;
     }
     h1 {
       margin: 0;
+      font-size: 1.8rem;
     }
     .progress-container {
       width: 80%;
@@ -36,104 +30,132 @@
     .progress-bar {
       height: 25px;
       background-color: #3b82f6;
-      width: 25%;
+      width: 0%;
       text-align: center;
       color: white;
       line-height: 25px;
       font-size: 0.9rem;
+      transition: width 0.3s;
     }
-    .section {
-      max-width: 800px;
+    .container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1000px;
       margin: auto;
+      padding: 2rem;
+    }
+    .steps {
+      flex: 2;
     }
     .step {
       background: #f0f0f0;
       padding: 1rem;
-      margin: 1rem 0;
+      margin-bottom: 1rem;
       border-radius: 10px;
-      position: relative;
+      cursor: pointer;
     }
     .step.completed {
-      background-color: #d1fae5;
+      background: #d1fae5;
       border: 1px solid #10b981;
     }
     .step h2 {
-      cursor: pointer;
-    }
-    .cta {
-      background: #3b82f6;
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      display: inline-block;
-      border-radius: 8px;
-      margin-top: 1rem;
-    }
-    .tools-used {
-      background: #fff;
-      border-left: 1px solid #ddd;
-      padding: 2rem;
-      flex: 1;
-    }
-    .tools-used h3 {
       margin-top: 0;
     }
-    .tool {
-      display: inline-block;
-      background: #eee;
-      padding: 0.4rem 0.75rem;
-      margin: 0.25rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
+    .ingredients {
+      flex: 1;
+      margin-left: 2rem;
+      background: #fff8dc;
+      border-left: 4px solid #facc15;
+      padding: 1rem;
+      border-radius: 8px;
     }
-    .tool a {
-      text-decoration: none;
-      color: #1a73e8;
-      font-weight: bold;
+    .ingredients h3 {
+      margin-top: 0;
+    }
+    .ingredients ul {
+      padding-left: 20px;
+    }
+    .complete {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .complete img {
+      width: 200px;
+      margin-bottom: 1rem;
+    }
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="main-content">
-    <header>
-      <h1>🌟 Jetset Recipe: Fly to Paris</h1>
-      <p>Follow these steps to book a flight to Paris using points. So simple, it's almost unfair.</p>
-    </header>
+  <header>
+    <h1>Jetset Recipe: Fly to Paris</h1>
+    <p>Follow these steps to fly to Paris using points. It’s simple, fun, and deliciously rewarding.</p>
+  </header>
 
-    <div class="progress-container">
-      <div class="progress-bar">Step 1 of 4</div>
-    </div>
-
-    <section class="section">
-      <div class="step completed">
-        <h2>Step 1: Apply for the Right Card</h2>
-        <p>Apply for the <strong>Chase Sapphire Preferred</strong> to start earning points.</p>
-        <a href="https://www.referyourchasecard.com/226m/EFWV1I3B5Q" class="cta" target="_blank">Apply Now</a>
-      </div>
-
-      <div class="step">
-        <h2>Step 2: Earn Your Welcome Bonus</h2>
-        <p>Spend $4,000 in 3 months to earn 60,000 points.</p>
-      </div>
-
-      <div class="step">
-        <h2>Step 3: Search for Flights</h2>
-        <p>Use <strong><a href="https://www.google.com/flights" target="_blank">Google Flights</a></strong> to find availability to Paris. Note prices and dates.</p>
-      </div>
-
-      <div class="step">
-        <h2>Step 4: Book with Points</h2>
-        <p>Use the <strong>Chase Travel Portal</strong> or transfer points to a partner airline to book your trip.</p>
-      </div>
-    </section>
+  <div class="progress-container">
+    <div id="progressBar" class="progress-bar">Step 1 of 4</div>
   </div>
 
-  <aside class="tools-used">
-    <h3>Tools Used in This Recipe</h3>
-    <div class="tool"><a href="https://www.referyourchasecard.com/226m/EFWV1I3B5Q" target="_blank">Chase Sapphire</a></div>
-    <div class="tool"><a href="https://www.rakuten.com/r/HUNGER276" target="_blank">Rakuten</a></div>
-    <div class="tool"><a href="https://www.google.com/flights" target="_blank">Google Flights</a></div>
-    <div class="tool"><a href="https://travel.chase.com" target="_blank">Chase Travel Portal</a></div>
-  </aside>
+  <div class="container">
+    <div class="steps">
+      <div class="step" onclick="completeStep(1)">
+        <h2>Step 1: Apply for the Right Card</h2>
+        <p>Use our <strong><a href="https://www.referyourchasecard.com/226m/EFWV1I3B5Q" target="_blank">Chase Sapphire Preferred referral link</a></strong> to earn a 60k point bonus.</p>
+      </div>
+      <div class="step" onclick="completeStep(2)">
+        <h2>Step 2: Earn Your Welcome Bonus</h2>
+        <p>Spend $4,000 in 3 months. Many blogs suggest using this on groceries, bills, and gift cards (like Fluz or Raise).</p>
+      </div>
+      <div class="step" onclick="completeStep(3)">
+        <h2>Step 3: Search for Flights</h2>
+        <p>Use <a href="https://www.google.com/flights" target="_blank">Google Flights</a>, <a href="https://www.point.me" target="_blank">Point.me</a>, or <a href="https://www.seatspy.com" target="_blank">SeatSpy</a> to find flights to Paris using transfer partners like Air France/KLM.</p>
+      </div>
+      <div class="step" onclick="completeStep(4)">
+        <h2>Step 4: Book with Points</h2>
+        <p>Transfer Chase UR to Flying Blue. Book a one-way award for as low as 15k–25k points. Use <a href="https://awardhacker.com" target="_blank">AwardHacker</a> for options.</p>
+      </div>
+    </div>
+
+    <aside class="ingredients">
+      <h3>Ingredients</h3>
+      <ul>
+        <li><a href="https://www.referyourchasecard.com/226m/EFWV1I3B5Q" target="_blank">Chase Sapphire Preferred</a></li>
+        <li><a href="https://www.rakuten.com/r/HUNGER276" target="_blank">Rakuten Extension</a></li>
+        <li><a href="https://www.point.me" target="_blank">Point.me</a></li>
+        <li><a href="https://www.google.com/flights" target="_blank">Google Flights</a></li>
+        <li><a href="https://www.seatspy.com" target="_blank">SeatSpy</a></li>
+        <li><a href="https://awardhacker.com" target="_blank">AwardHacker</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="complete hidden" id="endScreen">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Paris-Eiffel-Tower.jpg" alt="Eiffel Tower">
+    <h2>Bon Appétit! Your dish is ready: Paris awaits.</h2>
+    <p>Value cooked: ~$1,200 trip for <$100 out of pocket.</p>
+  </div>
+
+  <script>
+    let completedSteps = 0;
+
+    function completeStep(stepNum) {
+      const steps = document.querySelectorAll('.step');
+      if (!steps[stepNum - 1].classList.contains('completed')) {
+        steps[stepNum - 1].classList.add('completed');
+        completedSteps++;
+        const bar = document.getElementById('progressBar');
+        const percent = (completedSteps / steps.length) * 100;
+        bar.style.width = percent + '%';
+        bar.textContent = `Step ${completedSteps} of 4`;
+
+        if (completedSteps === 4) {
+          document.getElementById('endScreen').classList.remove('hidden');
+          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+      }
+    }
+  </script>
 </body>
 </html>
