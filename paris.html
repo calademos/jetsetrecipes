@@ -86,6 +86,12 @@
     .hidden {
       display: none;
     }
+    .cook-time {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #555;
+    }
   </style>
 </head>
 <body>
@@ -94,27 +100,29 @@
     <p>Follow these steps to fly to Paris using points. It’s simple, fun, and deliciously rewarding.</p>
   </header>
 
+  <div class="cook-time">🍳 Approximate Cook Time: 3–8 weeks</div>
+
   <div class="progress-container">
-    <div id="progressBar" class="progress-bar">Step 1 of 4</div>
+    <div id="progressBar" class="progress-bar">Step 0 of 4</div>
   </div>
 
   <div class="container">
     <div class="steps">
-      <div class="step" onclick="completeStep(1)">
+      <div class="step" onclick="toggleStep(1)">
         <h2>Step 1: Apply for the Right Card</h2>
-        <p>Use our <strong><a href="https://www.referyourchasecard.com/226m/EFWV1I3B5Q" target="_blank">Chase Sapphire Preferred referral link</a></strong> to earn a 60k point bonus.</p>
+        <p>Use our <strong><a href="https://www.referyourchasecard.com/226m/EFWV1I3B5Q" target="_blank">Chase Sapphire Preferred referral link</a></strong> to earn a 60k point bonus. This card is widely considered the best starter card for travel rewards.</p>
       </div>
-      <div class="step" onclick="completeStep(2)">
+      <div class="step" onclick="toggleStep(2)">
         <h2>Step 2: Earn Your Welcome Bonus</h2>
-        <p>Spend $4,000 in 3 months. Many blogs suggest using this on groceries, bills, and gift cards (like Fluz or Raise).</p>
+        <p>Spend $4,000 in 3 months on everyday expenses like groceries and bills. This will unlock the full 60k bonus points.</p>
       </div>
-      <div class="step" onclick="completeStep(3)">
+      <div class="step" onclick="toggleStep(3)">
         <h2>Step 3: Search for Flights</h2>
-        <p>Use <a href="https://www.google.com/flights" target="_blank">Google Flights</a>, <a href="https://www.point.me" target="_blank">Point.me</a>, or <a href="https://www.seatspy.com" target="_blank">SeatSpy</a> to find flights to Paris using transfer partners like Air France/KLM.</p>
+        <p>Use <a href="https://www.google.com/flights" target="_blank">Google Flights</a>, <a href="https://www.point.me" target="_blank">Point.me</a>, or <a href="https://www.seatspy.com" target="_blank">SeatSpy</a> to check Paris award availability.</p>
       </div>
-      <div class="step" onclick="completeStep(4)">
+      <div class="step" onclick="toggleStep(4)">
         <h2>Step 4: Book with Points</h2>
-        <p>Transfer Chase UR to Flying Blue. Book a one-way award for as low as 15k–25k points. Use <a href="https://awardhacker.com" target="_blank">AwardHacker</a> for options.</p>
+        <p>Transfer points from Chase to Flying Blue (Air France/KLM). Book as low as 15k–25k points for off-peak flights to Paris. Verify prices with <a href="https://awardhacker.com" target="_blank">AwardHacker</a>.</p>
       </div>
     </div>
 
@@ -139,21 +147,31 @@
 
   <script>
     let completedSteps = 0;
+    const steps = document.querySelectorAll('.step');
 
-    function completeStep(stepNum) {
-      const steps = document.querySelectorAll('.step');
-      if (!steps[stepNum - 1].classList.contains('completed')) {
-        steps[stepNum - 1].classList.add('completed');
+    function toggleStep(stepNum) {
+      const step = steps[stepNum - 1];
+      const bar = document.getElementById('progressBar');
+      const wasCompleted = step.classList.contains('completed');
+
+      if (wasCompleted) {
+        step.classList.remove('completed');
+        completedSteps--;
+      } else {
+        step.classList.add('completed');
         completedSteps++;
-        const bar = document.getElementById('progressBar');
-        const percent = (completedSteps / steps.length) * 100;
-        bar.style.width = percent + '%';
-        bar.textContent = `Step ${completedSteps} of 4`;
+      }
 
-        if (completedSteps === 4) {
-          document.getElementById('endScreen').classList.remove('hidden');
-          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        }
+      const percent = (completedSteps / steps.length) * 100;
+      bar.style.width = percent + '%';
+      bar.textContent = `Step ${completedSteps} of 4`;
+
+      const endScreen = document.getElementById('endScreen');
+      if (completedSteps === 4) {
+        endScreen.classList.remove('hidden');
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      } else {
+        endScreen.classList.add('hidden');
       }
     }
   </script>
