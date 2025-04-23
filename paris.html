@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jetset Recipe: Paris</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+    }
+    .main {
+      flex: 3;
+      padding: 2rem;
+    }
+    .toolkit {
+      flex: 1;
+      background: #f9f9f9;
+      padding: 2rem;
+      border-left: 1px solid #ddd;
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .progress-container {
+      width: 80%;
+      background: #eee;
+      border-radius: 30px;
+      overflow: hidden;
+      margin: 1rem auto 2rem auto;
+    }
+    .progress-bar {
+      height: 25px;
+      background-color: #3b82f6;
+      width: 25%;
+      text-align: center;
+      color: white;
+      line-height: 25px;
+      font-size: 0.9rem;
+    }
+    .step {
+      background: #f0f0f0;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .step.completed {
+      background-color: #d1fae5;
+      border: 1px solid #10b981;
+    }
+    .step input {
+      margin-right: 10px;
+    }
+    .cta {
+      background: #3b82f6;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      display: inline-block;
+      border-radius: 6px;
+      margin-top: 0.5rem;
+    }
+    .toolkit h3 {
+      margin-top: 0;
+    }
+    .toolkit ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .toolkit li {
+      margin-bottom: 0.5rem;
+    }
+    .toolkit button {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <header>
+      <h1>✈️ Jetset Recipe: Fly to Paris</h1>
+      <p>Follow these steps to book a flight to Paris using points. So simple, even grandma can do it.</p>
+    </header>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar">Step 1 of 4</div>
+    </div>
+
+    <section id="recipeSteps">
+      <div class="step">
+        <label><input type="checkbox" onchange="markComplete(this)"> Step 1: Apply for the Right Card</label>
+        <p>Apply for the <strong>Chase Sapphire Preferred</strong> to start earning points.</p>
+        <a href="https://www.referyourchasecard.com/226m/EFWV1I3B5Q" target="_blank" class="cta">Apply Now</a>
+      </div>
+
+      <div class="step">
+        <label><input type="checkbox" onchange="markComplete(this)"> Step 2: Earn Your Welcome Bonus</label>
+        <p>Spend $4,000 in 3 months to earn 60,000 points.</p>
+      </div>
+
+      <div class="step">
+        <label><input type="checkbox" onchange="markComplete(this)"> Step 3: Search for Flights</label>
+        <p>Use <a href="https://www.google.com/flights" target="_blank"><strong>Google Flights</strong></a> to find availability to Paris.</p>
+      </div>
+
+      <div class="step">
+        <label><input type="checkbox" onchange="markComplete(this)"> Step 4: Book with Points</label>
+        <p>Use the <strong>Chase Travel Portal</strong> or transfer points to a partner airline.</p>
+      </div>
+    </section>
+  </div>
+
+  <aside class="toolkit">
+    <h3>🧰 Toolkit: Add Ingredients</h3>
+    <ul>
+      <li><button onclick="addIngredient('AwardWallet')">➕ AwardWallet</button></li>
+      <li><button onclick="addIngredient('Travel Freely')">➕ Travel Freely</button></li>
+      <li><button onclick="addIngredient('Rakuten')">➕ Rakuten</button></li>
+      <li><button onclick="addIngredient('Point.me')">➕ Point.me</button></li>
+      <li><button onclick="addIngredient('ExpertFlyer')">➕ ExpertFlyer</button></li>
+      <li><button onclick="addIngredient('Google Flights')">➕ Google Flights</button></li>
+      <li><button onclick="addIngredient('Amex Referral')">➕ Amex Referral</button></li>
+      <li><button onclick="addIngredient('Capital One Shopping')">➕ Capital One Shopping</button></li>
+    </ul>
+  </aside>
+
+  <script>
+    function markComplete(checkbox) {
+      const step = checkbox.closest('.step');
+      if (checkbox.checked) {
+        step.classList.add('completed');
+      } else {
+        step.classList.remove('completed');
+      }
+    }
+
+    function addIngredient(name) {
+      const section = document.getElementById('recipeSteps');
+      const newStep = document.createElement('div');
+      newStep.classList.add('step');
+      newStep.innerHTML = `<label><input type="checkbox" onchange="markComplete(this)"> ${name}</label><p>This tool helps with travel hacking: ${name}</p>`;
+      section.appendChild(newStep);
+    }
+  </script>
+</body>
+</html>
