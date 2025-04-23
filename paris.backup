@@ -119,21 +119,21 @@
 
   <div class="container">
     <div class="steps">
-      <div class="step" onclick="toggleStep(1)">
-        <h2>Step 1: Apply for the Right Card</h2>
+      <div class="step" onclick="toggleStep(1)" title="Start here! Apply for a great travel card with a bonus.">
+        <h2>Step 1: Apply for the Right Card</h2><br><img src="chase.png" alt="Chase Card Application" style="width:100%; border-radius:10px; margin-top:0.5rem;">
         <p>Use our <strong><a href="https://www.referyourchasecard.com/226m/EFWV1I3B5Q" target="_blank">Chase Sapphire Preferred referral link</a></strong> to earn a 60k point bonus. This card is widely considered the best starter card for travel rewards.</p>
       </div>
-      <div class="step" onclick="toggleStep(2)">
-        <h2>Step 2: Earn Your Welcome Bonus</h2>
+      <div class="step" onclick="toggleStep(2)" title="What's a welcome bonus? It’s a big point reward after your first few months of spending.">
+        <h2>Step 2: Earn Your Welcome Bonus</h2><br><img src="minspend.png" alt="Spending Tracker Example" style="width:100%; border-radius:10px; margin-top:0.5rem;">
         <p>Spend $4,000 in 3 months on everyday expenses like groceries and bills. This will unlock the full 60k bonus points.</p>
       </div>
-      <div class="step" onclick="toggleStep(3)">
-        <h2>Step 3: Search for Flights</h2>
-        <p>Use <a href="https://www.google.com/flights" target="_blank">Google Flights</a>, <a href="https://www.point.me" target="_blank">Point.me</a>, <a href="https://www.seatspy.com" target="_blank">Seats.aero</a>, <a href="https://www.roame.travel" target="_blank">Roame.travel</a>, or <a href="https://awardtool.com" target="_blank">AwardTool</a> to check Paris award availability. Tutorials available on blogs like One Mile at a Time and The Points Guy.</p>
+      <div class="step" onclick="toggleStep(3)" title="Search for flights that allow point bookings with award tools.">
+        <h2>Step 3: Search for Flights</h2><br><img src="award.png" alt="Google Flights Search" style="width:100%; border-radius:10px; margin-top:0.5rem;">
+        <p>Use <a href="https://www.google.com/flights" target="_blank">Google Flights</a>, <a href="https://www.point.me" target="_blank">Point.me</a>, <a href="https://www.seats.aero" target="_blank">Seats.aero</a>, or <a href="https://www.roame.travel" target="_blank">Roame.travel</a> to check award space. Look for dates with low point redemptions.</p>
       </div>
-      <div class="step" onclick="toggleStep(4)">
-        <h2>Step 4: Book with Points</h2>
-        <p>Transfer points from Chase to Flying Blue (Air France/KLM). Book as low as 15k–25k points for off-peak flights to Paris. </p>
+      <div class="step" onclick="toggleStep(4)" title="You’ll transfer points to a loyalty program like Flying Blue, then book.">
+        <h2>Step 4: Book with Points</h2><br><img src="transfer.png" alt="Transfer Points Screenshot" style="width:100%; border-radius:10px; margin-top:0.5rem;">
+        <p>Transfer points from Chase to Flying Blue (Air France/KLM). Book as low as 15k–25k points for off-peak flights to Paris.</p>
       </div>
     </div>
 
@@ -144,7 +144,6 @@
         <li><a href="https://www.rakuten.com/r/HUNGER276" target="_blank">Rakuten Extension</a></li>
         <li><a href="https://www.point.me" target="_blank">Point.me</a></li>
         <li><a href="https://www.google.com/flights" target="_blank">Google Flights</a></li>
-        <li><a href="https://www.seatspy.com" target="_blank">SeatSpy</a></li>
         <li><a href="https://www.seats.aero" target="_blank">Seats.aero</a></li>
         <li><a href="https://www.roame.travel" target="_blank">Roame.travel</a></li>
         <li><a href="https://awardtool.com" target="_blank">AwardTool</a></li>
@@ -188,7 +187,8 @@
       }
     }
   </script>
-<div style="text-align: center; padding: 2rem;">
+
+  <div style="text-align: center; padding: 2rem;">
     <p><strong>💡 Like this recipe?</strong><br>Share it with your friends and help them travel smarter!</p>
     <button onclick="navigator.share ? navigator.share({ title: 'Jetset Recipes – Fly to Paris', text: 'I used this recipe to book a trip to Paris using points!', url: window.location.href }) : alert('Copy this URL to share: ' + window.location.href);" style="padding: 10px 20px; background-color: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem;">📤 Share this Recipe</button>
   </div>
