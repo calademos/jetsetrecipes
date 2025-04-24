@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unlock Your Bonus Jetset Recipe</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin-top: 60px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    input, button {
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 10px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #0070f3;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0055aa;
+    }
+    .referral-link {
+      margin-top: 20px;
+      word-break: break-all;
+      font-weight: bold;
+      color: #0070f3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Unlock Your Bonus Recipe</h1>
+    <p>Refer one friend to Jetset Recipes and get a new destination guide — like Tokyo, Bali, or Rome — completely free.</p>
+    
+    <form id="referralForm">
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <br />
+      <button type="submit">Generate My Referral Link</button>
+    </form>
+
+    <div id="result" class="referral-link" style="display: none;">
+      Your referral link: <span id="referralLink"></span>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("referralForm");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const encoded = encodeURIComponent(email.toLowerCase());
+      const referralLink = `https://calademos.github.io/jetsetrecipes/paris.html?ref=${encoded}`;
+      document.getElementById("referralLink").textContent = referralLink;
+      document.getElementById("result").style.display = "block";
+    });
+  </script>
+</body>
+</html>
