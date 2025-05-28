@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jetset Recipes – Travel Made Simple</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+  />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+    body { font-family: 'Poppins', sans-serif; background-color: #f8f8f8; }
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+    }
+    .playfair { font-family: 'Playfair Display', serif; }
+    .nav-link:hover { color: #f59e0b; }
+    .active-nav {
+      color: #f59e0b;
+      border-bottom: 2px solid #f59e0b;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fas fa-utensils text-2xl text-amber-500"></i>
+        <a href="#" class="text-2xl font-bold playfair text-gray-800">
+          Jetset Recipes
+        </a>
+      </div>
+      <div class="hidden md:flex space-x-8">
+        <a href="#" class="nav-link text-gray-700 transition duration-300 active-nav">
+          Home
+        </a>
+        <a href="#" class="nav-link text-gray-700 transition duration-300">
+          How It Works
+        </a>
+        <a href="#" class="nav-link text-gray-700 transition duration-300">
+          Recipes
+        </a>
+        <a href="#" class="nav-link text-gray-700 transition duration-300">
+          Refer a Friend
+        </a>
+        <a href="#" class="nav-link text-gray-700 transition duration-300">
+          Contact
+        </a>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button class="md:hidden text-gray-700 focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+        <button class="hidden md:block bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full transition duration-300">
+          <i class="fas fa-user-plus mr-2"></i> Sign Up
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section 
+    class="relative h-96 flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3…')]" 
+    style="background-size:cover; background-position:center;"
+  >
+    <div class="hero-gradient absolute inset-0"></div>
+    <div class="container mx-auto px-4 z-10 text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white playfair mb-4">
+        Turn Points Into Plane Tickets
+      </h1>
+      <p class="text-xl text-white mb-8 max-w-2xl mx-auto">
+        Travel like a pro with beginner-friendly Jetset Recipes. Just follow the steps.
+      </p>
+      <a 
+        href="paris.html" 
+        class="bg-white text-amber-600 hover:bg-gray-100 px-6 py-4 rounded-full font-medium transition duration-300"
+      >
+        Try Your First Recipe
+      </a>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-800 playfair mb-12 text-center">
+        How It Works
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-sm">
+          <h3 class="text-xl font-semibold mb-4">1. Pick a Destination</h3>
+          <p>Choose where you want to go from our curated recipe list.</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-sm">
+          <h3 class="text-xl font-semibold mb-4">2. Follow the Recipe</h3>
+          <p>Use points, cards, and tools—like ingredients in a dish—to unlock your trip.</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-sm">
+          <h3 class="text-xl font-semibold mb-4">3. Travel & Share</h3>
+          <p>Book your flight, pack your bags, and post your success. Easy!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recipe Preview -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-xl">
+      <div class="bg-white rounded-xl shadow-md p-8 text-center">
+        <h3 class="text-2xl font-bold mb-4 playfair">
+          ✈️ Fly to Paris for $200 + Points
+        </h3>
+        <p class="text-gray-600 mb-6">
+          Use our recipe to unlock 5 days in Paris with a welcome bonus from a single credit card.
+        </p>
+        <a 
+          href="paris.html" 
+          class="bg-amber-500 text-white px-6 py-3 rounded-full font-medium transition duration-300"
+        >
+          View Recipe
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Refer a Friend CTA -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-gray-800 playfair mb-4">
+        Refer a Friend. Get a Free Recipe.
+      </h2>
+      <p class="text-gray-600 mb-6">
+        Every time you invite someone to join Jetset Recipes, you get another recipe unlock. Simple.
+      </p>
+      <a 
+        href="#" 
+        class="bg-amber-500 text-white px-6 py-3 rounded-full font-medium transition duration-300"
+      >
+        Invite a Friend
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center space-x-2 mb-4">
+            <i class="fas fa-utensils text-2xl text-amber-500"></i>
+            <a href="#" class="text-2xl font-bold playfair">Jetset Recipes</a>
+          </div>
+          <p class="text-gray-400 mb-4">Travel hacking made easy since 2023.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <!-- You can leave the other footer columns or remove them if you don’t need them -->
+      </div>
+      <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Jetset Recipes. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.querySelector('.md\\:hidden');
+      const links = document.querySelector('.md\\:flex');
+      btn.addEventListener('click', () => {
+        links.classList.toggle('hidden');
+        links.classList.toggle('flex');
+      });
+    });
+  </script>
+</body>
+</html>
