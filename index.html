@@ -3,16 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- SEO Meta -->
-  <meta name="description" content="Recipe‑style guide to fly to Paris on 15k–25k points with Chase Sapphire Preferred."/>
-  <!-- Open Graph -->
-  <meta property="og:title" content="Jetset Recipe: Fly to Paris"/>
-  <meta property="og:description" content="Step-by-step guide to book award travel: Fly to Paris with points."/>
-  <meta property="og:image" content="banner_paris.png"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <title>Jetset Recipe: Fly to Paris</title>
-
-  <!-- Tailwind + Fonts + Icons -->
+  <title>Jetset Recipes – Travel Made Simple</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link 
     rel="stylesheet" 
@@ -20,30 +11,44 @@
   />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
-    body { font-family: 'Poppins', sans-serif; }
-    .playfair { font-family: 'Playfair Display', serif; }
-    .sr-only {
-      position: absolute; width: 1px; height: 1px;
-      margin: -1px; padding: 0; overflow: hidden;
-      clip: rect(0,0,0,0); white-space: nowrap; border:0;
+    body { font-family: 'Poppins', sans-serif; background-color: #f8f8f8; }
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
     }
-    .completed { background-color: #d1fae5 !important; border-color: #10b981 !important; }
+    .playfair { font-family: 'Playfair Display', serif; }
+    .nav-link:hover { color: #f59e0b; }
+    .active-nav {
+      color: #f59e0b;
+      border-bottom: 2px solid #f59e0b;
+    }
   </style>
 </head>
-
 <body class="bg-gray-50">
   <!-- Navigation -->
   <nav class="bg-white shadow-md sticky top-0 z-50">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center space-x-2">
         <i class="fas fa-utensils text-2xl text-amber-500"></i>
-        <a href="index.html" class="text-2xl font-bold playfair text-gray-800">Jetset Recipes</a>
+        <a href="#" class="text-2xl font-bold playfair text-gray-800">
+          Jetset Recipes
+        </a>
       </div>
       <div class="hidden md:flex space-x-8">
-        <a href="index.html" class="text-gray-700 hover:text-amber-500 transition duration-300">Home</a>
-        <a href="index.html#featured" class="text-gray-700 hover:text-amber-500 transition duration-300">Recipes</a>
-        <a href="paris.html" class="text-amber-500 border-b-2 border-amber-500">Fly to Paris</a>
-        <a href="index.html#refer" class="text-gray-700 hover:text-amber-500 transition duration-300">Refer a Friend</a>
+        <a href="#" class="nav-link text-gray-700 transition duration-300 active-nav">
+          Home
+        </a>
+        <a href="#" class="nav-link text-gray-700 transition duration-300">
+          How It Works
+        </a>
+        <a href="#" class="nav-link text-gray-700 transition duration-300">
+          Recipes
+        </a>
+        <a href="#" class="nav-link text-gray-700 transition duration-300">
+          Refer a Friend
+        </a>
+        <a href="#" class="nav-link text-gray-700 transition duration-300">
+          Contact
+        </a>
       </div>
       <div class="flex items-center space-x-4">
         <button class="md:hidden text-gray-700 focus:outline-none">
@@ -56,198 +61,126 @@
     </div>
   </nav>
 
-  <!-- Hero Banner -->
-  <header 
-    class="relative h-96 flex items-center justify-center bg-cover bg-center" 
-    style="background-image:url('banner_paris.png')"
-    role="img" aria-label="Paris skyline with Eiffel Tower and a passenger jet"
+  <!-- Hero -->
+  <section 
+    class="relative h-96 flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3…')]" 
+    style="background-size:cover; background-position:center;"
   >
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="relative text-center px-4">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white playfair mb-2">
-        Jetset Recipe: Fly to Paris
+    <div class="hero-gradient absolute inset-0"></div>
+    <div class="container mx-auto px-4 z-10 text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white playfair mb-4">
+        Turn Points Into Plane Tickets
       </h1>
-      <p class="text-lg md:text-xl text-white max-w-2xl mx-auto">
-        Follow these steps to fly to Paris using points. It’s simple, fun, and deliciously rewarding.
+      <p class="text-xl text-white mb-8 max-w-2xl mx-auto">
+        Travel like a pro with beginner-friendly Jetset Recipes. Just follow the steps.
       </p>
+      <a 
+        href="paris.html" 
+        class="bg-white text-amber-600 hover:bg-gray-100 px-6 py-4 rounded-full font-medium transition duration-300"
+      >
+        Try Your First Recipe
+      </a>
     </div>
-  </header>
+  </section>
 
-  <main class="container mx-auto px-4 py-12">
-    <!-- Cook Time -->
-    <p class="text-center italic text-gray-600 mb-6">🍳 Approximate Cook Time: 3–8 weeks</p>
-
-    <!-- Progress Bar -->
-    <div class="sticky top-16 bg-white p-4 rounded-lg shadow mb-8">
-      <div class="sr-only" id="progress-label">Recipe Progress</div>
-      <div 
-        id="progressBar" 
-        class="h-6 bg-amber-500 text-white text-center leading-6 rounded-full w-0 transition-all"
-        role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0"
-      >Step 0 of 4</div>
+  <!-- How It Works -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-800 playfair mb-12 text-center">
+        How It Works
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-sm">
+          <h3 class="text-xl font-semibold mb-4">1. Pick a Destination</h3>
+          <p>Choose where you want to go from our curated recipe list.</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-sm">
+          <h3 class="text-xl font-semibold mb-4">2. Follow the Recipe</h3>
+          <p>Use points, cards, and tools—like ingredients in a dish—to unlock your trip.</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-sm">
+          <h3 class="text-xl font-semibold mb-4">3. Travel & Share</h3>
+          <p>Book your flight, pack your bags, and post your success. Easy!</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="flex flex-col lg:flex-row gap-8">
-      <!-- Steps -->
-      <section class="steps flex-2 space-y-6" role="list" aria-label="Recipe Steps">
-        <article 
-          class="step bg-gray-100 p-6 rounded-lg border-2 border-transparent cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-500"
-          role="button" tabindex="0" aria-pressed="false" data-step="1"
-          aria-labelledby="step1-title step1-desc"
+  <!-- Recipe Preview -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-xl">
+      <div class="bg-white rounded-xl shadow-md p-8 text-center">
+        <h3 class="text-2xl font-bold mb-4 playfair">
+          ✈️ Fly to Paris for $200 + Points
+        </h3>
+        <p class="text-gray-600 mb-6">
+          Use our recipe to unlock 5 days in Paris with a welcome bonus from a single credit card.
+        </p>
+        <a 
+          href="paris.html" 
+          class="bg-amber-500 text-white px-6 py-3 rounded-full font-medium transition duration-300"
         >
-          <h2 id="step1-title" class="text-xl font-semibold mb-3">Step 1: Apply for the Right Card</h2>
-          <picture>
-            <source srcset="chase-small.png 480w, chase.png 800w" sizes="(max-width:600px) 480px, 800px">
-            <img src="chase.png" alt="Chase Sapphire Preferred card" loading="lazy" class="rounded mb-3 mx-auto"/>
-          </picture>
-          <p id="step1-desc">
-            Use our 
-            <a class="text-amber-500 hover:underline" href="https://www.referyourchasecard.com/226m/EFWV1I3B5Q" target="_blank" rel="noopener">
-              Chase Sapphire Preferred referral link
-            </a>
-            to earn a 60k point bonus.
-          </p>
-        </article>
-
-        <article 
-          class="step bg-gray-100 p-6 rounded-lg border-2 border-transparent cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-500"
-          role="button" tabindex="0" aria-pressed="false" data-step="2"
-          aria-labelledby="step2-title step2-desc"
-        >
-          <h2 id="step2-title" class="text-xl font-semibold mb-3">Step 2: Earn Your Welcome Bonus</h2>
-          <picture>
-            <source srcset="minspend-small.png 480w, minspend.png 800w" sizes="(max-width:600px) 480px, 800px">
-            <img src="minspend.png" alt="Spending Tracker Example" loading="lazy" class="rounded mb-3 mx-auto"/>
-          </picture>
-          <p id="step2-desc">Spend $4,000 in 3 months on everyday expenses to unlock your 60k points.</p>
-        </article>
-
-        <article 
-          class="step bg-gray-100 p-6 rounded-lg border-2 border-transparent cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-500"
-          role="button" tabindex="0" aria-pressed="false" data-step="3"
-          aria-labelledby="step3-title step3-desc"
-        >
-          <h2 id="step3-title" class="text-xl font-semibold mb-3">Step 3: Search for Flights</h2>
-          <picture>
-            <source srcset="award-small.png 480w, award.png 800w" sizes="(max-width:600px) 480px, 800px">
-            <img src="award.png" alt="Award booking search tools" loading="lazy" class="rounded mb-3 mx-auto"/>
-          </picture>
-          <p id="step3-desc">
-            Use 
-            <a href="https://www.google.com/flights" class="text-amber-500 hover:underline" target="_blank" rel="noopener">Google Flights</a>, 
-            <a href="https://www.point.me" class="text-amber-500 hover:underline" target="_blank" rel="noopener">Point.me</a>, 
-            <a href="https://www.seats.aero" class="text-amber-500 hover:underline" target="_blank" rel="noopener">Seats.aero</a>, or 
-            <a href="https://www.roame.travel" class="text-amber-500 hover:underline" target="_blank" rel="noopener">Roame.travel</a>.
-          </p>
-        </article>
-
-        <article 
-          class="step bg-gray-100 p-6 rounded-lg border-2 border-transparent cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-500"
-          role="button" tabindex="0" aria-pressed="false" data-step="4"
-          aria-labelledby="step4-title step4-desc"
-        >
-          <h2 id="step4-title" class="text-xl font-semibold mb-3">Step 4: Book with Points</h2>
-          <picture>
-            <source srcset="transfer-small.png 480w, transfer.png 800w" sizes="(max-width:600px) 480px, 800px">
-            <img src="transfer.png" alt="Transfer points to Flying Blue" loading="lazy" class="rounded mb-3 mx-auto"/>
-          </picture>
-          <p id="step4-desc">
-            Transfer points from Chase to Flying Blue and book for as low as 15k–25k points.
-          </p>
-        </article>
-      </section>
-
-      <!-- Ingredients -->
-      <aside class="ingredients bg-amber-50 border-l-4 border-amber-500 p-6 rounded-lg space-y-3 flex-1">
-        <h3 class="text-lg font-semibold playfair">Ingredients</h3>
-        <ul class="list-disc list-inside space-y-2 text-gray-700">
-          <li><a class="text-amber-500 hover:underline" href="https://www.referyourchasecard.com/226m/EFWV1I3B5Q" target="_blank" rel="noopener">Chase Sapphire Preferred</a></li>
-          <li><a class="text-amber-500 hover:underline" href="https://www.rakuten.com/r/HUNGER276" target="_blank" rel="noopener">Rakuten Extension</a></li>
-          <li><a class="text-amber-500 hover:underline" href="https://www.point.me" target="_blank" rel="noopener">Point.me</a></li>
-          <li><a class="text-amber-500 hover:underline" href="https://www.google.com/flights" target="_blank" rel="noopener">Google Flights</a></li>
-          <li><a class="text-amber-500 hover:underline" href="https://www.seats.aero" target="_blank" rel="noopener">Seats.aero</a></li>
-          <li><a class="text-amber-500 hover:underline" href="https://www.roame.travel" target="_blank" rel="noopener">Roame.travel</a></li>
-          <li><a class="text-amber-500 hover:underline" href="https://awardtool.com" target="_blank" rel="noopener">AwardTool</a></li>
-        </ul>
-      </aside>
+          View Recipe
+        </a>
+      </div>
     </div>
+  </section>
 
-    <!-- Completion Screen -->
-    <div id="endScreen" class="complete hidden text-center py-12">
-      <img src="tower.png" alt="Eiffel Tower" loading="lazy" class="mx-auto mb-6 rounded-lg shadow"/>
-      <h2 class="text-2xl font-bold mb-2 playfair">Bon Appétit! Your dish is ready: Paris awaits.</h2>
-      <p class="text-gray-600">Value cooked: ~$1,200 trip for &lt;$100 out of pocket.</p>
+  <!-- Refer a Friend CTA -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-gray-800 playfair mb-4">
+        Refer a Friend. Get a Free Recipe.
+      </h2>
+      <p class="text-gray-600 mb-6">
+        Every time you invite someone to join Jetset Recipes, you get another recipe unlock. Simple.
+      </p>
+      <a 
+        href="#" 
+        class="bg-amber-500 text-white px-6 py-3 rounded-full font-medium transition duration-300"
+      >
+        Invite a Friend
+      </a>
     </div>
-
-    <!-- Share Button -->
-    <div class="text-center my-8">
-      <button id="shareBtn" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full font-medium transition duration-300">
-        <i class="fas fa-share mr-2"></i> Share this Recipe
-      </button>
-    </div>
-  </main>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-white pt-16 pb-8">
-    <div class="container mx-auto px-4 text-center">
-      <p class="mb-2">Jetset Recipes will always be <strong>free</strong>.</p>
-      <p class="text-gray-400">Support us by using our referral links—it’s how we keep this kitchen running. 🍽️✈️</p>
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center space-x-2 mb-4">
+            <i class="fas fa-utensils text-2xl text-amber-500"></i>
+            <a href="#" class="text-2xl font-bold playfair">Jetset Recipes</a>
+          </div>
+          <p class="text-gray-400 mb-4">Travel hacking made easy since 2023.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <!-- You can leave the other footer columns or remove them if you don’t need them -->
+      </div>
+      <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Jetset Recipes. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
-  <!-- JS for Progress & Toggle -->
   <script>
-    (function() {
-      const steps = Array.from(document.querySelectorAll('.step'));
-      const bar = document.getElementById('progressBar');
-      let completed = 0;
-
-      function updateBar() {
-        bar.setAttribute('aria-valuenow', completed);
-        const pct = (completed / steps.length) * 100;
-        bar.style.width = pct + '%';
-        bar.textContent = `Step ${completed} of ${steps.length}`;
-        const end = document.getElementById('endScreen');
-        if (completed === steps.length) {
-          end.classList.remove('hidden');
-          setTimeout(() => window.scrollTo({ top: end.offsetTop, behavior: 'smooth' }), 200);
-        } else {
-          end.classList.add('hidden');
-        }
-      }
-
-      function toggle(stepEl) {
-        const was = stepEl.getAttribute('aria-pressed') === 'true';
-        stepEl.setAttribute('aria-pressed', String(!was));
-        stepEl.classList.toggle('completed');
-        completed += was ? -1 : 1;
-        updateBar();
-      }
-
-      document.querySelector('.steps').addEventListener('click', e => {
-        const s = e.target.closest('.step');
-        if (s) toggle(s);
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.querySelector('.md\\:hidden');
+      const links = document.querySelector('.md\\:flex');
+      btn.addEventListener('click', () => {
+        links.classList.toggle('hidden');
+        links.classList.toggle('flex');
       });
-
-      steps.forEach(s => {
-        s.addEventListener('keydown', e => {
-          if (['Enter',' '].includes(e.key)) {
-            e.preventDefault();
-            toggle(s);
-          }
-        });
-      });
-
-      document.getElementById('shareBtn').addEventListener('click', () => {
-        if (navigator.share) {
-          navigator.share({ title: document.title, url: location.href });
-        } else {
-          navigator.clipboard.writeText(location.href)
-            .then(() => alert('Link copied to clipboard!'))
-            .catch(() => prompt('Copy this URL:', location.href));
-        }
-      });
-    })();
+    });
   </script>
 </body>
 </html>
