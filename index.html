@@ -6,104 +6,93 @@
   <title>Jetset Recipes – Travel Made Simple</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link 
-    rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
-    body { font-family: 'Poppins', sans-serif; background-color: #f8f8f8; }
-    .hero-gradient {
-      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
-    }
+    body { font-family: 'Poppins', sans-serif; }
     .playfair { font-family: 'Playfair Display', serif; }
-    .nav-link:hover { color: #f59e0b; }
-    .active-nav {
-      color: #f59e0b;
-      border-bottom: 2px solid #f59e0b;
-    }
   </style>
 </head>
 <body class="bg-gray-50">
+
   <!-- Navigation -->
-  <nav class="bg-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <i class="fas fa-utensils text-2xl text-amber-500"></i>
-        <a href="#" class="text-2xl font-bold playfair text-gray-800">
-          Jetset Recipes
-        </a>
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Brand -->
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-utensils text-2xl text-amber-500"></i>
+          <a href="#" class="text-2xl font-bold playfair text-gray-800">Jetset Recipes</a>
+        </div>
+        <!-- Desktop Links -->
+        <div class="hidden md:flex space-x-8">
+          <a href="#" class="text-gray-700 hover:text-amber-500 transition">Home</a>
+          <a href="#how" class="text-gray-700 hover:text-amber-500 transition">How It Works</a>
+          <a href="#recipes" class="text-gray-700 hover:text-amber-500 transition">Recipes</a>
+          <a href="#refer" class="text-gray-700 hover:text-amber-500 transition">Refer a Friend</a>
+          <a href="#contact" class="text-gray-700 hover:text-amber-500 transition">Contact</a>
+        </div>
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-gray-700 focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
       </div>
-      <div class="hidden md:flex space-x-8">
-        <a href="#" class="nav-link text-gray-700 transition duration-300 active-nav">
-          Home
-        </a>
-        <a href="#" class="nav-link text-gray-700 transition duration-300">
-          How It Works
-        </a>
-        <a href="#" class="nav-link text-gray-700 transition duration-300">
-          Recipes
-        </a>
-        <a href="#" class="nav-link text-gray-700 transition duration-300">
-          Refer a Friend
-        </a>
-        <a href="#" class="nav-link text-gray-700 transition duration-300">
-          Contact
-        </a>
-      </div>
-      <div class="flex items-center space-x-4">
-        <button class="md:hidden text-gray-700 focus:outline-none">
-          <i class="fas fa-bars text-xl"></i>
-        </button>
-        <button class="hidden md:block bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full transition duration-300">
-          <i class="fas fa-user-plus mr-2"></i> Sign Up
-        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+      <div class="px-2 pt-2 pb-4 space-y-1">
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Home</a>
+        <a href="#how" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">How It Works</a>
+        <a href="#recipes" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Recipes</a>
+        <a href="#refer" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Refer a Friend</a>
+        <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Contact</a>
       </div>
     </div>
   </nav>
 
-<!-- Hero -->
-<section
-  class="relative h-96 flex items-center justify-center bg-cover bg-center"
-  style="background-image:url('IMG_9901.jpg')"
->
-  <!-- dark gradient overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-
-  <!-- actual hero copy -->
-  <div class="relative z-10 text-center px-4">
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white playfair mb-4">
-      Turn Points Into Plane Tickets
-    </h1>
-    <p class="text-xl text-white mb-8 max-w-2xl mx-auto">
-      Travel like a pro with beginner-friendly Jetset Recipes. Just follow the steps.
-    </p>
-    <a
-      href="paris.html"
-      class="bg-white text-amber-600 hover:bg-gray-100 px-6 py-4 rounded-full font-medium transition duration-300"
-    >
-      Try Your First Recipe
-    </a>
-  </div>
-</section>
-
+  <!-- Hero -->
+  <section
+    class="relative h-64 sm:h-80 md:h-96 flex items-center justify-center bg-cover bg-center"
+    style="background-image:url('IMG_9901.jpg')"
+  >
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white playfair mb-3">
+        Turn Points Into Plane Tickets
+      </h1>
+      <p class="text-sm sm:text-base md:text-lg text-white mb-6 max-w-lg mx-auto">
+        Travel like a pro with beginner-friendly Jetset Recipes. Just follow the steps.
+      </p>
+      <a
+        href="paris.html"
+        class="inline-block bg-white text-amber-600 hover:bg-gray-100 px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full font-medium transition"
+      >
+        Try Your First Recipe
+      </a>
+    </div>
+  </section>
 
   <!-- How It Works -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-gray-800 playfair mb-12 text-center">
+  <section id="how" class="py-12 sm:py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 playfair mb-8">
         How It Works
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-sm">
-          <h3 class="text-xl font-semibold mb-4">1. Pick a Destination</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+          <h3 class="text-lg sm:text-xl font-semibold mb-2">1. Pick a Destination</h3>
           <p>Choose where you want to go from our curated recipe list.</p>
         </div>
-        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-sm">
-          <h3 class="text-xl font-semibold mb-4">2. Follow the Recipe</h3>
+        <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+          <h3 class="text-lg sm:text-xl font-semibold mb-2">2. Follow the Recipe</h3>
           <p>Use points, cards, and tools—like ingredients in a dish—to unlock your trip.</p>
         </div>
-        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-sm">
-          <h3 class="text-xl font-semibold mb-4">3. Travel & Share</h3>
+        <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+          <h3 class="text-lg sm:text-xl font-semibold mb-2">3. Travel & Share</h3>
           <p>Book your flight, pack your bags, and post your success. Easy!</p>
         </div>
       </div>
@@ -111,18 +100,14 @@
   </section>
 
   <!-- Recipe Preview -->
-  <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4 max-w-xl">
-      <div class="bg-white rounded-xl shadow-md p-8 text-center">
-        <h3 class="text-2xl font-bold mb-4 playfair">
-          ✈️ Fly to Paris for $200 + Points
-        </h3>
-        <p class="text-gray-600 mb-6">
-          Use our recipe to unlock 5 days in Paris with a welcome bonus from a single credit card.
-        </p>
+  <section id="recipes" class="py-12 sm:py-16 bg-gray-50">
+    <div class="max-w-md mx-auto px-4">
+      <div class="bg-white p-6 rounded-xl shadow-md text-center">
+        <h3 class="text-xl sm:text-2xl font-bold mb-3 playfair">✈️ Fly to Paris for $200 + Points</h3>
+        <p class="text-gray-600 mb-4">Use our recipe to unlock 5 days in Paris with a welcome bonus from a single credit card.</p>
         <a 
-          href="paris.html" 
-          class="bg-amber-500 text-white px-6 py-3 rounded-full font-medium transition duration-300"
+          href="paris.html"
+          class="inline-block bg-amber-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full font-medium transition hover:bg-amber-600"
         >
           View Recipe
         </a>
@@ -131,17 +116,13 @@
   </section>
 
   <!-- Refer a Friend CTA -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold text-gray-800 playfair mb-4">
-        Refer a Friend. Get a Free Recipe.
-      </h2>
-      <p class="text-gray-600 mb-6">
-        Every time you invite someone to join Jetset Recipes, you get another recipe unlock. Simple.
-      </p>
-      <a 
-        href="#" 
-        class="bg-amber-500 text-white px-6 py-3 rounded-full font-medium transition duration-300"
+  <section id="refer" class="py-12 sm:py-16 bg-white">
+    <div class="max-w-lg mx-auto px-4 text-center">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 playfair mb-4">Refer a Friend. Get a Free Recipe.</h2>
+      <p class="text-gray-600 mb-6">Every time you invite someone to join Jetset Recipes, you get another recipe unlock. Simple.</p>
+      <a
+        href="#"
+        class="inline-block bg-amber-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full font-medium transition hover:bg-amber-600"
       >
         Invite a Friend
       </a>
@@ -149,41 +130,18 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white pt-16 pb-8">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-        <div>
-          <div class="flex items-center space-x-2 mb-4">
-            <i class="fas fa-utensils text-2xl text-amber-500"></i>
-            <a href="#" class="text-2xl font-bold playfair">Jetset Recipes</a>
-          </div>
-          <p class="text-gray-400 mb-4">Travel hacking made easy since 2023.</p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-        <!-- You can leave the other footer columns or remove them if you don’t need them -->
-      </div>
-      <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-        <p>&copy; 2025 Jetset Recipes. All rights reserved.</p>
-      </div>
+  <footer id="contact" class="bg-gray-800 text-white pt-12 pb-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="mb-4">Jetset Recipes will always be <strong>free</strong>.</p>
+      <p class="text-gray-400">Support us by using our referral links—it’s how we keep this kitchen running. 🍽️✈️</p>
+      <p class="mt-6 text-gray-500 text-sm">&copy; 2025 Jetset Recipes. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
     // Mobile menu toggle
-    document.addEventListener('DOMContentLoaded', () => {
-      const btn = document.querySelector('.md\\:hidden');
-      const links = document.querySelector('.md\\:flex');
-      btn.addEventListener('click', () => {
-        links.classList.toggle('hidden');
-        links.classList.toggle('flex');
-      });
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
     });
   </script>
 </body>
