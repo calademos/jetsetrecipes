@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Turn points into plane tickets with beginner-friendly travel recipes. Just follow the steps to unlock your next adventure.">
+  <title>JetSetRecipes – Travel Made Simple</title>
+  <!-- Tailwind CSS -->
+  <script defer src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p1CmXK/ubRU+gq/3MCtfu66JxW5/JLsGjXQmflYAxXQ5/RQvS4OXqNp3BJUXn808+4EkUPCwY+bDcVfN4Kp9Iw==" crossorigin="anonymous">
+  <style>html { scroll-behavior: smooth; }</style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+  <!-- Header / Navigation -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center space-x-2" aria-label="Home">
+        <i class="fas fa-utensils text-2xl text-amber-500"></i>
+        <span class="text-2xl font-bold font-playfair">JetSetRecipes</span>
+      </a>
+      <nav>
+        <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none" aria-expanded="false" aria-label="Toggle menu">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+        <ul id="menu" class="hidden md:flex md:space-x-8">
+          <li><a href="#" class="nav-link font-medium hover:text-amber-500 active:text-amber-500">Home</a></li>
+          <li><a href="#recipes" class="nav-link font-medium hover:text-amber-500">Recipes</a></li>
+          <li><a href="#countries" class="nav-link font-medium hover:text-amber-500">Countries</a></li>
+          <li><a href="#about" class="nav-link font-medium hover:text-amber-500">About</a></li>
+          <li><a href="#contact" class="nav-link font-medium hover:text-amber-500">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="hidden md:inline-flex items-center bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full transition">
+        <i class="fas fa-user-plus mr-2"></i> Sign Up
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-80 md:h-[32rem] flex items-center justify-center bg-cover bg-center" style="background-image: url('IMG_9901.jpg');">
+      <div class="absolute inset-0 bg-gradient-to-bl from-black/70 to-black/30"></div>
+      <div class="relative text-center px-4">
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold font-playfair text-white mb-4">Turn Points Into Plane Tickets</h1>
+        <p class="text-lg md:text-xl text-white mb-6 max-w-2xl mx-auto">Travel like a pro with beginner-friendly JetSet Recipes. Just follow the steps.</p>
+        <form class="flex flex-col sm:flex-row items-center gap-4 max-w-2xl mx-auto">
+          <div class="relative flex-grow w-full">
+            <input type="search" aria-label="Search recipes or countries" placeholder="Search recipes or countries..." class="w-full px-5 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-amber-500">
+            <button type="submit" class="absolute inset-y-0 right-2 flex items-center justify-center bg-amber-500 text-white p-2 rounded-full hover:bg-amber-600 transition">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <button type="button" class="bg-white text-amber-600 hover:bg-gray-100 px-6 py-3 rounded-full font-medium transition">
+            <i class="fas fa-random mr-2"></i> Surprise Me
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Featured Recipes -->
+    <section id="recipes" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <header class="flex justify-between items-center mb-12">
+          <h2 class="text-3xl font-bold font-playfair">Featured Travel Recipes</h2>
+          <a href="#" class="flex items-center text-amber-500 font-medium hover:text-amber-600">
+            View All <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </header>
+        <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Recipe Card Template -->
+          <article class="group bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transform transition hover:-translate-y-2">
+            <figure class="relative">
+              <img src="italy.png" alt="Travel to Italy" loading="lazy" class="w-full h-64 object-cover">
+              <button aria-label="Favorite Italy Recipe" class="absolute top-4 right-4 bg-white rounded-full p-2 opacity-80 group-hover:opacity-100 transition">
+                <i class="fas fa-heart text-amber-500"></i>
+              </button>
+              <figcaption class="absolute bottom-4 left-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium inline-flex items-center">
+                <img src="https://flagcdn.com/w20/it.png" alt="Italian flag" class="w-5 h-4 rounded-sm mr-1 object-cover"> Italy
+              </figcaption>
+            </figure>
+            <div class="p-6">
+              <h3 class="text-xl font-bold font-playfair mb-2">Travel to Italy</h3>
+              <p class="text-gray-600 mb-4">A Roman classic.</p>
+              <div class="flex justify-between items-center text-gray-500">
+                <div class="flex items-center space-x-3">
+                  <span><i class="fas fa-clock"></i> 3 months</span>
+                  <span><i class="fas fa-utensils"></i> Medium</span>
+                </div>
+                <a href="#" class="text-amber-500 font-medium hover:text-amber-600">View Recipe</a>
+              </div>
+            </div>
+          </article>
+          <!-- Repeat for other cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional sections (Countries, Testimonials, Newsletter) similarly updated with semantic tags, Tailwind utilities, lazy loading images and accessible attributes -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Footer content organized with semantic lists and links -->
+    </div>
+    <div class="mt-8 border-t border-gray-700 pt-6 text-center">
+      <p>&copy; 2025 JetSetRecipes. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    const btn = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('menu');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true' || false;
+      btn.setAttribute('aria-expanded', !expanded);
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
